@@ -1,0 +1,90 @@
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>Cadastrar</title>
+	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+</head>
+<body>
+  <div>
+         <h1 class="title is-2">Cadastro</h1>
+      <div class="columns is-mobile is-centered">
+        <div class="column is-half">
+
+          <div class="control">
+              <h1 class="title is-3">Dados da Criança</h1>
+            <label class="label">Nome</label>
+            <input class="input" id="nome_crianca" type="text" placeholder="ex: Matheus "></input>
+
+            <label class="label" >Idade</label>
+            <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 "></input>
+
+            <label class="label">Sexo</label>
+            <div class="select" id="sexo_crianca">
+              <select>
+                <option>--</option>
+                <option>Masculino</option>
+                <option>Feminino</option>
+              </select>
+            </div>
+
+            <label class="label">Carteira de Identidade</label>
+            <input class="input" id="documento_crianca" type="text" placeholder="ex: xxxxxxxx"></input>
+            <br></br><br></br>
+            <button onClick={teste} class="button is-primary">Enviar</button>
+
+            <div><br></br></div>
+          
+
+            <h1 class="title is-3" >Dados Responsável</h1>
+
+            <label class="label">Nome do responsável</label>
+            <input class="input" id="nome_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+
+
+            <label class="label">Carteira de Identidade </label>
+            <input  class="input" id="documento_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+
+
+            <br></br><br></br>
+            <button class="button is-primary">Enviar</button>
+
+            <div><br></br></div>
+
+            <h1 class="title is-3" >Dados Escolar</h1>
+
+            <label class="label">Horario de entrada</label>
+            <input class="input" id="horario_entrada" type="text" placeholder="ex: 7:10 "></input>
+            <label class="label">Horario de saída</label>
+            <input class="input" id="horario_saida" type="text" placeholder="ex: 11:40 "></input>
+            <label class="label">Sala de Aula</label>
+            <input class="input" id="sala" type="text" placeholder="ex: 1° C "></input>
+
+
+            <label class="label">Observações Adicionais:</label>
+            
+          
+                <textarea class="textarea" id="dados_complementar" placeholder=""></textarea>
+          
+            
+
+
+
+            <div><br></br></div>
+
+            <button class="button is-primary">Enviar</button>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+</body>
+</html>
