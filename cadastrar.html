@@ -22,8 +22,8 @@
             <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 "></input>
 
             <label class="label">Sexo</label>
-            <div class="select" id="sexo_crianca">
-              <select>
+            <div class="select">
+              <select id="sexo_crianca">
                 <option>--</option>
                 <option>Masculino</option>
                 <option>Feminino</option>
@@ -31,10 +31,10 @@
             </div>
 
             <label class="label">Carteira de Identidade</label>
-            <input class="input" id="documento_crianca" type="text" placeholder="ex: xxxxxxxx"></input>
+            <input class="input" id="carteira_identidade" type="text" placeholder="ex: xxxxxxxx"></input>
             <br></br><br></br>
-            <button onClick={teste} class="button is-primary">Enviar</button>
-
+            <button onclick="postCrianca()" class="button is-primary">Enviar</button>
+<script src="script.js"></script>
             <div><br></br></div>
           
 
