@@ -4,9 +4,9 @@
 	<title>Cadastrar</title>
     <meta charset="utf-8">
 	  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-       
+      
 </head>
-<body>
+<body ">
   <div>
          
       <div class="columns is-mobile is-centered">
@@ -21,8 +21,8 @@
             <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 "></input>
 
             <label class="label">Sexo</label>
-            <div class="select" id="sexo_crianca">
-              <select>
+            <div class="select">
+              <select id="sexo_crianca">
                 <option>--</option>
                 <option>Masculino</option>
                 <option>Feminino</option>
@@ -32,7 +32,7 @@
             <label class="label">Carteira de Identidade</label>
             <input class="input" id="documento_crianca" type="text" placeholder="ex: xxxxxxxx"></input>
             <br></br><br></br>
-            <button  class="button is-primary">Atualizar Dados</button>
+            <button  class="button is-primary" onclick="putAluno()" >Atualizar Dados</button>
 
             <div><br></br></div>
 
@@ -43,7 +43,8 @@
 
     </div>
 
-<script src="script.js"></script>
+    <script src="script.js"></script>
+
 
 </body>
 </html>
