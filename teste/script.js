@@ -3,7 +3,7 @@
 const url = "http://localhost:8080/api/alunos"
 const urlRemove = "http://localhost:8080/api/aluno/"
 var listaAlunos
-var oi
+
 function remove(idAluno) {
    fetch(urlRemove + idAluno, { method: 'DELETE' }).then(() => {
       location.reload();
@@ -18,7 +18,8 @@ function getAluno() {
       .then(response => response.json())
       .then(data => {
          listaAlunos = data
-         oi = data
+         console.log(data);
+
          document.getElementById('teste').innerHTML = `
     ${data.map(alunoTemplate).join(' ')}
 
@@ -35,7 +36,8 @@ function getAluno() {
       <div class="box">
       <strong>Nome:</strong> ${aluno.nome}<br>
    <strong>Idade:</strong> ${aluno.idade}<br>
-   <strong>Sexo:</strong> ${aluno.sexo}
+   <strong>Sexo:</strong> ${aluno.sexo}<br>
+   <img src="data:image/png;base64, ${aluno.foto}" />
     <footer class="card-footer">
     <a href="../pages/alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Edit</a>
     <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Delete</a>
@@ -74,6 +76,7 @@ function getAlunoNome() {
       <strong>Nome:</strong> ${aluno.nome}<br>
    <strong>Idade:</strong> ${aluno.idade}<br>
    <strong>Sexo:</strong> ${aluno.sexo}
+   <img src="data:image/png;base64,${aluno.foto}"/><br>
     <footer class="card-footer">
     <a href="../pages/alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"  >Edit</a>
     <a href="#" class="card-footer-item"  onclick="remove(${aluno.id})">Delete</a>
