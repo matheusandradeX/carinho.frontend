@@ -170,3 +170,11 @@ function postCrianca() {
 
 }
 
+function pesquisar(event){
+
+   if (event.which == 13 || event.keyCode == 13) {
+      
+      getAlunoNome()
+  }
+  return true;
+}
