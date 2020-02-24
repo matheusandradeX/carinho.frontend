@@ -1,7 +1,3 @@
-
-
-
-
 function postCrianca() {
 
 	var nome = document.getElementById('nome_crianca').value
@@ -31,8 +27,7 @@ function postCrianca() {
 	document.getElementById('carteira_identidade').value = ''
 
 	document.getElementById('idade_crianca').value = ''
-
-
+	
 }
 
 

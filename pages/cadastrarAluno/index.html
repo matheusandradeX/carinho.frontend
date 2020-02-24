@@ -15,11 +15,13 @@
 
           <div class="control">
               <h1 class="title is-3">Dados da Criança</h1>
+              <section >
             <label class="label">Nome</label>
-            <input class="input" id="nome_crianca" type="text" placeholder="ex: Matheus "></input>
+            <i class="fa fa-lock"></i>
+            <input class="input" id="nome_crianca" type="text" placeholder="ex: Matheus " required ></input>
 
             <label class="label" >Idade</label>
-            <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 "></input>
+            <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 " required ></input>
 
             <label class="label">Sexo</label>
             <div class="select">
@@ -35,6 +37,7 @@
             <br></br><br></br>
             <button onclick="postCrianca()" class="button is-primary">Enviar</button>
 <script src="script.js"></script>
+</section>
             <div><br></br></div>
           
 
