@@ -3,27 +3,31 @@
 <head>
 	<title>Login</title>
 	<meta charset="utf-8">
-	 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+  <link href="../../bulma.min.css" rel="stylesheet" >
     
-<section class="hero is-primary is-fullheight">
+
+</head>
+<body>
+
+  <section class="hero is-primary is-fullheight">
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-5-tablet is-4-desktop is-3-widescreen">
             <form action="" class="box">
               <div class="field">
-                <label for="" class="label">Usuário</label>
+                <label for="" class="label">Email</label>
                 <div class="control has-icons-left">
-                  <input type="text" placeholder="" class="input" required>
+                  <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-envelope"></i>
                   </span>
                 </div>
               </div>
               <div class="field">
-                <label for="" class="label">Senha</label>
+                <label for="" class="label">Password</label>
                 <div class="control has-icons-left">
-                  <input type="password" placeholder="" class="input" required>
+                  <input type="password" placeholder="*******" class="input" required>
                   <span class="icon is-small is-left">
                     <i class="fa fa-lock"></i>
                   </span>
@@ -32,12 +36,12 @@
               <div class="field">
                 <label for="" class="checkbox">
                   <input type="checkbox">
-                 Lembrar Senha
+                 Remember me
                 </label>
               </div>
               <div class="field">
                 <button class="button is-success">
-                  Entrar
+                  Login
                 </button>
               </div>
             </form>
@@ -46,9 +50,9 @@
       </div>
     </div>
   </section>
+<button onclick="autenticar()">Precione</button>
+<script src="script.js"></script>
 
-</head>
-<body>
 </body>
 </html>
 

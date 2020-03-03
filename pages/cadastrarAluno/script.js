@@ -8,7 +8,11 @@ function postCrianca() {
 
 	var carteiraIdentidade = document.getElementById('carteira_identidade').value
 
-	var post = { nome: nome, idade: idade, sexo: sexo, carteiraIdentidade: carteiraIdentidade }
+	var image = document.getElementById('image_crianca').value
+
+	var post = { nome: nome, idade: idade, sexo: sexo, carteiraIdentidade: carteiraIdentidade, image: image }
+
+	console.log(image);
 
 	var json = JSON.stringify(post)
 
