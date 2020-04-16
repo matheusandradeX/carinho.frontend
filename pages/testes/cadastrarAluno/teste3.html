@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div>
+        <div class="form-group">
+          <label for="upfile-2">Profile Picture</label>
+          <input type="file" class="form-control" id="imagemCrianca"><br>
+          Nome:<input class="input" id="nomeCrianca" type="text" placeholder="ex: Matheus " required ></input>
+       
+       
+        <br>
+          <button id="upload" onclick="cadastrarCrianca()" class="btn btn-outline-primary">Upload</button>
+        </div>
+      </div>
+
+
+
+
+
+      
+      <script>
+         function cadastrarCrianca(){
+
+  const form = new FormData();
+ 
+  
+ 
+ var file = document.getElementById('imagemCrianca').files[0]
+ var nome = document.getElementById('nomeCrianca').value
+
+
+
+    
+
+   form.append("nome", nome);
+    form.append('image', file);
+  
+  const url = 'http://localhost:8080/api'
+  const request = new Request(url, {
+    method: 'POST',
+    body: form
+  });
+
+  fetch(request)
+    .then(response => response.text())
+    .then(console.log)
+
+
+
+
+
+
+         }
+
+ 
+ 
+
+
+      </script>
+
+
+</body>
+</html>

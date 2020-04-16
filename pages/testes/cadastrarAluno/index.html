@@ -34,9 +34,7 @@
           <a class="navbar-item" href="../cadastrarAluno/index.html">
             Aluno
           </a>
-          <a class="navbar-item" href="../turmas/index.html">
-            Turmas
-          </a>
+ 
         </div>
       </div>
     </div>
@@ -46,34 +44,37 @@
         <br>
       <div class="columns is-mobile is-centered">
         <div class="column is-half">
+
           <div class="control">
-            <h1 class="title is-3">Dados da Criança</h1>
-          <div>
-            <div class="form-group">
-              <label class="label">Nome</label>
-            <input class="input" id="nomeCrianca" type="text" placeholder="ex: Matheus " required ></input>
+              <h1 class="title is-3">Dados da Criança</h1>
+              <section >
+            <label class="label">Nome</label>
+            <div>
+           
+            <input class="input" id="nome_crianca" type="text" placeholder="ex: Matheus "  ></input>
+
             <label class="label" >Idade</label>
-            <input class="input" id="idadeCrianca" type="text" placeholder="ex: 11 " ></input>
+            <input class="input" id="idade_crianca" type="text" placeholder="ex: 11 " ></input>
+
             <label class="label">Sexo</label>
             <div class="select">
-              <select id="sexoCrianca">
+              <select id="sexo_crianca">
                 <option>--</option>
                 <option>Masculino</option>
                 <option>Feminino</option>
               </select>
             </div>
+
             <label class="label">Carteira de Identidade</label>
-            <input class="input" id="carteiraIdentidade" type="text" placeholder="ex: xxxxxxxx"></input>
+            <input class="input" id="carteira_identidade" type="text" placeholder="ex: xxxxxxxx"></input>
             <br>
 
-            <label class="label">Escolher Imagem</label>
-            
-              <input type="file" class="form-control" id="imagemCrianca"><br>
-            <br>
-              <button class="button is-primary" id="upload" onclick="cadastrarCrianca()" class="btn btn-outline-primary">Enviar</button>
-            </div>
-          </div>
-    
+            <input placeholder="Escolher Imagem" type="file"   id="imagemCrianca">
+            <br><br>
+           
+            <button id="upload" onclick="cadastrarCrianca()" class="btn btn-outline-primary">Upload</button>
+       </div>
+          
        
   <script src="script.js"></script>
       </section>

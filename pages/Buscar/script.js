@@ -28,8 +28,7 @@ function getAluno() {
  <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
  <br>
 
- `})
-      .catch(err => console.log(err))
+ `})    .catch(err => console.log(err))
 
    function alunoTemplate(aluno) {
       return `		
@@ -39,18 +38,12 @@ function getAluno() {
    <strong>Sexo:</strong> ${aluno.sexo}<br>
    <img src="data:image/png;base64, ${aluno.foto}" />
     <footer class="card-footer">
-    <a href="../pages/alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Edit</a>
-    <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Delete</a>
+    <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
+    <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
   </footer>
       </div>
    `
    }
-
-
-
-
-
-
 }
 function getAlunoNome() {
    var nome = document.getElementById("campoBusca").value
@@ -75,11 +68,11 @@ function getAlunoNome() {
       <div class="box">
       <strong>Nome:</strong> ${aluno.nome}<br>
    <strong>Idade:</strong> ${aluno.idade}<br>
-   <strong>Sexo:</strong> ${aluno.sexo}
+   <strong>Sexo:</strong> ${aluno.sexo}<br>
    <img src="data:image/png;base64,${aluno.foto}"/><br>
     <footer class="card-footer">
-    <a href="../pages/alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"  >Edit</a>
-    <a href="#" class="card-footer-item"  onclick="remove(${aluno.id})">Delete</a>
+    <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"  >Editar</a>
+    <a href="#" class="card-footer-item"  onclick="remove(${aluno.id})">Deletar</a>
    
   </footer>
       </div>
@@ -104,7 +97,6 @@ console.log(atualizarAluno)
 
  
 
- var teste =  atualizarAluno.map(preencherCampos).join('')
 
 
    function preencherCampos(campo){

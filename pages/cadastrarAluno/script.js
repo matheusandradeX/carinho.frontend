@@ -1,39 +1,38 @@
-function postCrianca() {
+function cadastrarCrianca(){
 
-	var nome = document.getElementById('nome_crianca').value
-
-	var idade = document.getElementById('idade_crianca').value
-
-	var sexo = document.getElementById('sexo_crianca').value
-
-	var carteiraIdentidade = document.getElementById('carteira_identidade').value
-
-	var image = document.getElementById('image_crianca').value
-
-	var post = { nome: nome, idade: idade, sexo: sexo, carteiraIdentidade: carteiraIdentidade, image: image }
-
-	console.log(image);
-
-	var json = JSON.stringify(post)
-
-	const url = "http://localhost:8080/api/aluno"
-
-	fetch(url, {
-		method: "POST",
-		headers: { 'Content-Type': 'application/json' },
-		body: json
-	});
-
-	document.getElementById('nome_crianca').value = ''
-
-	document.getElementById('sexo_crianca').value = ''
-
-	document.getElementById('carteira_identidade').value = ''
-
-	document.getElementById('idade_crianca').value = ''
+	const form = new FormData();
+   
 	
-}
-
-
-
-
+   
+   var file = document.getElementById('imagemCrianca').files[0]
+   var nome = document.getElementById('nomeCrianca').value
+   var idade = document.getElementById('idadeCrianca').value
+   var sexo = document.getElementById('sexoCrianca').value
+   var carteiraIdentidade = document.getElementById('carteiraIdentidade').value
+  
+	  console.log(nome);
+  
+	 form.append("nome", nome);
+	 form.append('idade',idade);
+	  form.append('sexo', sexo);
+	  form.append('carteiraIdentidade', carteiraIdentidade);
+	  form.append('image',file);
+	
+	const url = 'http://localhost:8080/api'
+	const request = new Request(url, {
+	  method: 'POST',
+	  body: form
+	});
+  
+	fetch(request)
+	  .then(response => response.text())
+	  .then(console.log)
+  
+  
+  
+  
+  
+  
+		   }
+  
+   
