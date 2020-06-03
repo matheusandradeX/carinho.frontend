@@ -6,7 +6,40 @@
     <link href="../../bulma.min.css" rel="stylesheet" >
       
 </head>
-<body ">
+<nav class="navbar is-light">
+  <div class="navbar-brand">
+    <a class="navbar-item">
+      <img src="https://bulma.io/images/bulma-logo.png" 
+       width="112" height="28">
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="../Buscar/index.html" >
+        Buscar
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" >
+          Cadastrar
+        </a>
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" href="../cadastrarAluno/index.html">
+            Aluno
+          </a>
+          <a class="navbar-item" href="../turmas/index.html">
+            Turmas
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<body>
   <div>
          
       <div class="columns is-mobile is-centered">
@@ -30,7 +63,12 @@
             </div>
 
             <label class="label">Carteira de Identidade</label>
+            
             <input class="input" id="documento_crianca" type="text" placeholder="ex: xxxxxxxx"></input>
+            <label class="label">Escolher Imagem</label>
+            
+            <input type="file" class="form-control" id="imagemCrianca"><br>
+          <br>
             <br></br><br></br>
             <button  class="button is-primary" onclick="putAluno()" >Atualizar Dados</button>
 

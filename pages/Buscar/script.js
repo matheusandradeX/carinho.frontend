@@ -54,6 +54,7 @@ function getAluno() {
       <strong>Nome:</strong> ${aluno.nome}<br>
    <strong>Idade:</strong> ${aluno.idade}<br>
    <strong>Sexo:</strong> ${aluno.sexo}<br>
+   <strong>Documento:</strong> ${aluno.carteiraIdentidade}<br>
    <img src="data:image/png;base64, ${aluno.foto}" />
     <footer class="card-footer">
     <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
@@ -64,10 +65,9 @@ function getAluno() {
    }
 }
 
- function atualizarAluno(aluno) {
+function atualizarAluno(aluno) {
    
    var idAluno = aluno
-
    
   
    var atualizarAluno = listaAlunos.filter(function(aluno){
@@ -79,8 +79,9 @@ console.log(atualizarAluno)
    var campoSexo;
    var campoCI;
 
- 
 
+
+ var teste =  atualizarAluno.map(preencherCampos).join('')
 
 
    function preencherCampos(campo){
@@ -89,7 +90,6 @@ console.log(atualizarAluno)
               campoSexo = campo.sexo,
               campoCI = campo.carteiraIdentidade
    }
-
   
   sessionStorage.setItem('idAluno', aluno);
    sessionStorage.setItem('nome', campoNome);
@@ -99,11 +99,16 @@ console.log(atualizarAluno)
   
  
    
-
-
+/*  
+var n = "Joao"
+    document.getElementById('nome_crianca').value = n
+   document.getElementById('sexo_crianca').value = campoSexo
+   document.getElementById('idade_crianca').value = campoIdade
+   document.getElementById('carteira_identidade').value = campoCI
+ window.open("editarAluno.html", "Altualizar Dados do Aluno", "height=600,width=600");
+   */
   
 }
-
 function postCrianca() {
 
    var nome = document.getElementById('nome_crianca').value
