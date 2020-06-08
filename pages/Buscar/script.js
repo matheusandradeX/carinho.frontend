@@ -11,7 +11,7 @@ function verificarLista( ){
   var nome = document.getElementById("campoBusca").value
    if(nome == ""){
       console.log("Valor nulo")
-      url ="http://localhost:8080/api/alunos"
+      url ="http://localhost:8080/api/alunos?page=0"
    }else{
       url = "http://localhost:8080/api/alunos"+"/"+nome
    }
@@ -36,13 +36,12 @@ function getAluno() {
       .then(response => response.json())
       .then(data => {
          listaAlunos = data
-         console.log(data);
-
+         console.log(typeof mapAluno);
          document.getElementById('teste').innerHTML = `
     ${data.map(alunoTemplate).join(' ')}
 
  `
-         document.getElementById('titulo').innerHTML = `
+          document.getElementById('titulo').innerHTML = `
  <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
  <br>
 
@@ -55,12 +54,16 @@ function getAluno() {
    <strong>Idade:</strong> ${aluno.idade}<br>
    <strong>Sexo:</strong> ${aluno.sexo}<br>
    <strong>Documento:</strong> ${aluno.carteiraIdentidade}<br>
-   <img src="data:image/png;base64, ${aluno.foto}" />
+   <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
+  
     <footer class="card-footer">
+    
     <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
     <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
   </footer>
       </div>
+
+
    `
    }
 }
