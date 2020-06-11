@@ -1,9 +1,22 @@
 
 
- var url
+ var url ="http://localhost:8080/api/alunos"
 const urlRemove = "http://localhost:8080/api/aluno/"
 var listaAlunos
 var nome = document.getElementById("campoBusca").value
+
+let username = 'matheus';
+let password = 'teste';
+
+let headers = new Headers();
+
+headers.append('Content-Type', 'text/json');
+//headers.append('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+
+fetch(url, {method:'GET',
+        headers: headers,
+     
+       })
 
 
 function verificarLista( ){
@@ -11,7 +24,7 @@ function verificarLista( ){
   var nome = document.getElementById("campoBusca").value
    if(nome == ""){
       console.log("Valor nulo")
-      url ="http://localhost:8080/api/alunos?page=0"
+      url ="http://localhost:8080/api/alunos"
    }else{
       url = "http://localhost:8080/api/alunos"+"/"+nome
    }
@@ -37,32 +50,48 @@ function getAluno() {
       .then(data => {
          listaAlunos = data
          console.log(typeof mapAluno);
-         document.getElementById('teste').innerHTML = `
-    ${data.map(alunoTemplate).join(' ')}
+         console.log(data);
+         document.getElementById('titulo').innerHTML = `
+         <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
+         <br>
+         `
+         document.getElementById('teste').innerHTML = data.map(alunoTemplate).join(' ')
 
- `
-          document.getElementById('titulo').innerHTML = `
- <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
- <br>
-
- `})    .catch(err => console.log(err))
+ 
+  })    .catch(err => console.log(err))
 
    function alunoTemplate(aluno) {
       return `		
-      <div class="box">
-      <strong>Nome:</strong> ${aluno.nome}<br>
-   <strong>Idade:</strong> ${aluno.idade}<br>
-   <strong>Sexo:</strong> ${aluno.sexo}<br>
-   <strong>Documento:</strong> ${aluno.carteiraIdentidade}<br>
-   <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
-  
-    <footer class="card-footer">
+       <div class="columns is-mobile is-centered">
+       <div class="box">
+     
+         <div class="elementos">
+            <div class="elemento">
+               <div>
+               <strong>Nome:</strong> ${aluno.nome}
+               </div>
+               <div>
+               <strong>Idade:</strong> ${aluno.idade}
+               </div>
+               <div>
+               <strong>Sexo:</strong> ${aluno.sexo}
+               </div>
+               <div>
+               <strong>Documento:</strong> ${aluno.carteiraIdentidade}
+               </div>
+            </div>
+            <div class="elemento2">
+               <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
+            </div>
+          
+         </div>
+      <footer class="card-footer">
     
-    <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
-    <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
-  </footer>
+      <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
+      <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
+      </footer>
       </div>
-
+  </div>
 
    `
    }
