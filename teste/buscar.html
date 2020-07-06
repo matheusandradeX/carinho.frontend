@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Buscar Criança</title>
   <meta charset="utf-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
-   
-
-     <div className="App">
-          <nav class="navbar is-primary" role="navigation" aria-label="dropdown navigation">
-
-            <a class="navbar-item">
-              <Link to="/BuscarCriança">BuscarCriança</Link>
-            </a>
-            <a class="navbar-item">
-              <Link to="/CadastrarResponsavel">CadastrarResponsavel</Link>
-            </a>
-            <a class="navbar-item ">
-              <Link to="/Api">Api</Link>
-            </a>
-
-          </nav>
-        
-      </div>
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 
 </head>
+
 <body>
 
 
- <div>
-      <div class="columns is-mobile is-centered">
-        <div class="column is-half">
-        <h1 class="title is-2">Digite o nome</h1>
-        <div class="field is-horizontal">
+
+  <div id="pegar"> </div>
+
+  <script>
+
+
+var url = "http://localhost:8080/api/responsavel/1"
+    console.log("Teste")
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        listaAlunos = data
+        console.log(typeof mapAluno);
+        console.log(data);
         
-       
-     
-          <input class="  input " type="text" placeholder="Rounded input"></input>
-          <button class="button is-primary ">Buscar</button>
-        </div>
-        </div>
-        </div>
-     
+        document.getElementById('pegar').innerHTML = data.map(alunoTemplate).join(' ')
 
 
+      }).catch(err => console.log(err))
+
+    function alunoTemplate(aluno) {
+      return `		
+                  
   
+               <div>
+               <strong>ID </strong> ${aluno.id}
+               </div>
+              <div>
+               <strong>Responsavel: </strong> ${aluno.nome_resp}
+               </div>
+               <div>
+               <strong>RG </strong> ${aluno.carteira_identidade}
+               </div>
+               
+              
+                              
+            
+           
+          
+      
+ 
 
+   `
+    }
 
+  </script>
 
-
-</div id="pegar">
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-   <script src="script.js"></script>
 </body>
+
 </html>

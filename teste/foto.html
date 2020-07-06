@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+   
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+</head>
+
+<body>
+
+
+
+    <div class="container">
+        <div>
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" /><br>
+    
+            <label for="imagePicker">Foto:</label>
+            <input type="file" id="imagePicker" /><br>
+    
+            <input type="button" onclick="sendData()" value="Enviar" />
+        </div>
+    
+    </div>
+
+
+<script>
+
+
+
+function sendData() {
+    var aluno = {
+        nome: document.querySelector('#nome').value,
+        foto = document.querySelector('#imagePicker').files[0]
+    };
+   
+
+    var formData = new FormData();
+    formData.append("pessoaJson", JSON.stringify(aluno));
+
+
+    fetch('http://localhost:8080/api/testefoto', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok)
+                throw new Error("não foi possível completar cadastro");
+
+            return response.text();
+        })
+        .then(data => alert(data));
+}
+
+
+
+</script>
+
+
+
+</body>
+
+</html>
+
+
+
+
