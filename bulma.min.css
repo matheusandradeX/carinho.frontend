@@ -414,7 +414,7 @@ html {
     -webkit-font-smoothing: antialiased;
     min-width: 300px;
     overflow-x: hidden;
-    overflow-y: hidden;
+    overflow-y: scroll;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
@@ -4226,7 +4226,7 @@ fieldset[disabled] .button {
 .table-container {
     -webkit-overflow-scrolling: touch;
     overflow: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
     max-width: 100%
 }
 

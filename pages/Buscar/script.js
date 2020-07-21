@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/api/alunos"
+var url = "http://localhost:8080/api/aluno"
 const urlRemove = "http://localhost:8080/api/aluno/"
 var listaAlunos
 var nome = document.getElementById("campoBusca").value
@@ -62,6 +62,7 @@ function getAluno() {
 
     function alunoTemplate(aluno) {
         return `		
+ 
        <div class="columns is-mobile is-centered">
        <div class="box">
          <div class="elementos">
@@ -83,18 +84,99 @@ function getAluno() {
                <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
             </div>
          </div>
+        
       <footer class="card-footer">
     
-      <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
-      <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
-      <a href="../responsavel/index.html" class="card-footer-item"onclick="resp(${aluno.id})">Responsavel</a>
+      <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"> <i class="material-icons">edit</i> Editar</a>
+      <a href="#" class="card-footer-item" onclick="remove(${aluno.id})"> <i class="material-icons">delete</i> Deletar</a>
+      <a href="../responsavel/index.html" class="card-footer-item"onclick="resp(${aluno.id})"><i class="material-icons">people</i> Responsavel</a>
+      <a href="#" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
+      <a href="#" id="saida" class="card-footer-item"         onclick="saida(${aluno.id})">Saida</a>
+      
       </footer>
       </div>
-  </div>
+     
+      </div>
 
    `
+
+
     }
 }
+
+
+
+
+function entrada(id) {
+
+
+    const url = "http://localhost:8080/api/controle"
+
+    var idAluno = id;
+
+    var status = "ENTRADA"
+
+    var post = { id: idAluno, tipoHorario: status }
+
+    var json = JSON.stringify(post)
+
+
+    fetch(url, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: json
+    });
+
+    var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+
+
+    M.toast({ html: 'Entrada Relizada ' + myDate })
+
+
+}
+
+function saida(id) {
+
+
+    const url = "http://localhost:8080/api/controle"
+
+    var idAluno = id;
+
+    var status = "SAIDA"
+
+    var post = { id: idAluno, tipoHorario: status }
+
+    var json = JSON.stringify(post)
+
+
+    fetch(url, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: json
+    });
+
+
+    var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+
+    M.toast({ html: 'Saida Relizada ' + myDate })
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

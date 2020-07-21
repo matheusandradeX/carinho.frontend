@@ -5,9 +5,25 @@
     <title>PAGINA GET</title>
 
 </head>
+
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<meta charset="UTF-8">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
 <link href="../../bulma.min.css" rel="stylesheet">
 <link href="style.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+
+
+
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
 <body onload="getAluno()">
     <nav class="navbar is-light">
@@ -26,6 +42,9 @@
                 <a class="navbar-item" href="../Buscar/index.html">
           Buscar
         </a>
+                <a class="navbar-item" href="../controle/index.html">
+                        Controle
+                      </a>
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
             Cadastrar
@@ -38,6 +57,7 @@
               Turmas
             </a>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -48,7 +68,7 @@
             <div class="column is-half">
                 <div class="field is-horizontal">
                     <input class="input" id="campoBusca" type="text" placeholder="Digite um Nome"></input>
-                    <button class="button is-primary " onclick="getAluno()">Buscar</button>
+                    <button class="button is-primary " onclick="getAluno()"><i class="material-icons">search</i>Buscar</button>
                 </div>
             </div>
         </div>
