@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.0/css/bulma.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+    <div class="columns is-mobile is-centered">
+
+
+
+
+
+
+        <div class="box">
+
+
+
+
+
+            <div class="elementos">
+                <div class="elemento">
+
+                    <div style="display: flex; justify-content: flex-end">
+                        <div>
+                            <div class="dropdown is-right is-hoverable">
+                                <div class="dropdown-trigger">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
+                        <span>Menu</span> 
+                        <span class="icon is-small"> 
+                            <i class="fas fa-angle-down"
+                            aria-hidden="true"></i> 
+                        </span> 
+                        </button>
+                                </div>
+                                <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                                    <div class="dropdown-content">
+                                        <a href="#" class="dropdown-item"> 
+                                            Editar
+                        </a>
+                                        <a href="#" class="dropdown-item"> 
+                                            Deletar
+                        </a>
+                                        <a href="#" class="dropdown-item"> 
+                                            Responsável 
+                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <div>
+                        <strong>Nome:</strong> ${aluno.nome}
+                    </div>
+                    <div>
+                        <strong>Idade:</strong> ${aluno.idade}
+                    </div>
+                    <div>
+                        <strong>Sexo:</strong> ${aluno.genero}
+                    </div>
+                    <div>
+                        <strong>Documento:</strong> ${aluno.carteiraIdentidade}
+                    </div>
+                </div>
+                <div class="elemento2">
+                    <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
+                </div>
+            </div>
+
+            <footer class="card-footer">
+
+                <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"> <i class="material-icons">edit</i> Editar</a>
+                <a href="#" class="card-footer-item" onclick="remove(${aluno.id})"> <i class="material-icons">delete</i> Deletar</a>
+                <a href="../responsavel/index.html" class="card-footer-item" onclick="resp(${aluno.id})"><i class="material-icons">people</i> Responsavel</a>
+                <a href="#" id="entrada" class="card-footer-item" onclick="entrada(${aluno.id})">Entrada</a>
+                <a href="#" id="saida" class="card-footer-item" onclick="saida(${aluno.id})">Saida</a>
+
+            </footer>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+    <script>
+        let dropdown = document.querySelector('.dropdown');
+        dropdown.addEventListener('click', function(event) {
+            event.stopPropagation();
+            dropdown.classList.toggle('is-active');
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

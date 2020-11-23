@@ -65,44 +65,9 @@ function getAluno() {
  
        <div class="columns is-mobile is-centered">
        <div class="box">
-
-       <div style="display: flex; justify-content: flex-end">
-       <div>
-           <div class="dropdown is-right is-hoverable">
-               <div class="dropdown-trigger">
-                   <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
-       <span>Menu</span> 
-       <span class="icon is-small"> 
-           <i class="fas fa-angle-down"
-           aria-hidden="true"></i> 
-       </span> 
-       </button>
-               </div>
-               <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                   <div class="dropdown-content">
-                       <a href="../alterarAluno/index.html" class="dropdown-item"   onclick="atualizarAluno(${aluno.id})"     >  <i class="material-icons">edit</i>
-                           Editar
-       </a>
-                       <a href="#" class="dropdown-item"    onclick="remove(${aluno.id})"> <i class="material-icons">delete</i>
-                           Deletar
-       </a>
-                       <a href="../responsavel/index.html" class="dropdown-item"             onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
-                           Responsável 
-       </a>
-                   </div>
-               </div>
-           </div>
-       </div>
-   </div>
          <div class="elementos">
-         
             <div class="elemento">
-            
-
-           
             <div>
-
-
                <strong>Nome:</strong> ${aluno.nome}
                </div>
                <div>
@@ -122,12 +87,11 @@ function getAluno() {
         
       <footer class="card-footer">
     
-      
+      <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})"> <i class="material-icons">edit</i> Editar</a>
+      <a href="#" class="card-footer-item" onclick="remove(${aluno.id})"> <i class="material-icons">delete</i> Deletar</a>
+      <a href="../responsavel/index.html" class="card-footer-item"onclick="resp(${aluno.id})"><i class="material-icons">people</i> Responsavel</a>
       <a href="#" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
       <a href="#" id="saida" class="card-footer-item"         onclick="saida(${aluno.id})">Saida</a>
-      <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
-      Responsável 
-</a>
       
       </footer>
       </div>
@@ -139,9 +103,6 @@ function getAluno() {
 
     }
 }
-
-
-
 
 
 
@@ -168,12 +129,8 @@ function entrada(id) {
 
     var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
+
     M.toast({ html: 'Entrada Relizada ' + myDate })
-    var $toastContent = $('<span>I am toast content</span>').add($('<button class="btn-flat toast-action">Undo</button>'));
-    Materialize.toast($toastContent, 10000);
-
-
-
 
 
 }
@@ -305,38 +262,3 @@ function responsavel(id) {
 
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//DOMContentLoaded - it fires when initial HTML document has been completely loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // querySelector - it returns the element within the document that matches the specified selector
-    var dropdown = document.querySelector('.dropdown');
-
-    //addEventListener - attaches an event handler to the specified element.
-    dropdown.addEventListener('click', function(event) {
-
-        //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
-        event.stopPropagation();
-
-        //classList.toggle - it toggles between adding and removing a class name from an element
-        dropdown.classList.toggle('is-active');
-    });
-});

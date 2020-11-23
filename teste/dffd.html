@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bulma Dropdown</title>
+
+    <!-- Include Bulma CSS -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css'>
+
+    <!-- FontAwesome Library -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/js/all.min.js'>
+    </script>
+
+    <!-- Custom CSS -->
+    <style>
+        div.columns {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='container has-text-centered'>
+        <div class='columns is-mobile is-centered'>
+
+
+
+
+
+
+
+            <div class='column is-5'>
+                <div class="dropdown is-right is-hoverable">
+                    <div class="dropdown-trigger">
+                        <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
+			<span>Menu</span> 
+			<span class="icon is-small"> 
+				<i class="fas fa-angle-down"
+				aria-hidden="true"></i> 
+			</span> 
+			</button>
+                    </div>
+                    <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                        <div class="dropdown-content">
+                            <a href="#" class="dropdown-item"> 
+                                Editar
+			</a>
+                            <a href="#" class="dropdown-item"> 
+                                Deletar
+			</a>
+                            <a href="#" class="dropdown-item"> 
+                                Responsável 
+			</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
