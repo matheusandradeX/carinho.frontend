@@ -8,6 +8,7 @@
 
 
     <link href="../../bulma.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 
 
 </head>
@@ -72,11 +73,90 @@
                             <label class="label">Carteira de Identidade</label>
                             <input class="input" id="carteiraIdentidade" type="text" placeholder="ex: xxxxxxxx"></input>
                             <br>
-
-                            <label class="label">Escolher Imagem</label>
-
-                            <input type="file" class="form-control" id="imagemCrianca"><br>
                             <br>
+                            <label class="label">Foto de Identificação</label>
+
+
+
+
+
+
+
+                            <button class="button" id="addImg" style="margin-bottom: 10px">Adicionar imagem</button>
+                            <button class="button" id="addFoto" style="margin-bottom: 10px">Tirar foto</button>
+
+                            <div id="img" hidden>
+                                <label class="label">Escolher Imagem</label>
+                                <input type="file" class="form-control" id="imagemCrianca"><br>
+                            </div>
+
+
+                            <br>
+                            <div id="foto" hidden>
+                                <label class="label">Tirar Foto</label>
+
+
+                                <br>
+                                <div>
+                                    <div id="my_camera" style="width: 320px; height: 240px;">
+                                        <div></div><video autoplay="autoplay" playsinline="playsinline" style="width: 320px; height: 240px;"></video></div>
+
+                                    <div id="results"></div>
+
+                                    <button class="button is-primary" onclick="take_snapshot()" class="btn btn-outline-primary">Tirar Foto</button>
+
+
+                                </div>
+
+                                <!-- First, include the Webcam.js JavaScript Library -->
+                                <script type="text/javascript" src="./webcam.min.js.baixados"></script>
+
+                                <!-- Configure a few settings and attach camera -->
+                                <script language="JavaScript">
+                                    Webcam.set({
+                                        width: 320,
+                                        height: 240,
+                                        image_format: 'jpeg',
+                                        jpeg_quality: 100
+                                    });
+                                    Webcam.attach('#my_camera');
+                                </script>
+
+                                <!-- A button for taking snaps -->
+
+
+
+                                <br>
+                                <br>
+
+                                <!-- Code to handle taking the snapshot and displaying it locally -->
+                                <script language="JavaScript">
+                                    function take_snapshot() {
+                                        // take snapshot and get image data
+                                        Webcam.snap(function(data_uri) {
+                                            // display results in page
+                                            document.getElementById('results').innerHTML =
+                                                '<h2>Aqui está sua foto</h2>' +
+                                                '<img src="' + data_uri + '"/>';
+                                        });
+                                    }
+                                </script>
+
+
+
+
+
+                            </div>
+
+
+
+
+
+
+
+
+                            <br>
+
                             <button class="button is-primary" id="upload" onclick="cadastrarCrianca()" class="btn btn-outline-primary">Enviar</button>
                         </div>
                     </div>
@@ -88,58 +168,108 @@
                     </div>
 
 
-                    <h1 class="title is-3">Dados Responsável</h1>
+                    <h1 class="title is-3">Dados dos Responsáveis</h1>
 
-                    <label class="label">Nome do responsável</label>
+                    <label class="label">Nome do responsável 1</label>
                     <input class="input" id="nome_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br>
 
-
-                    <label class="label">Carteira de Identidade </label>
+                    <label class="label">Carteira de Identidade 2 </label>
                     <input class="input" id="documento_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br/></br>
+                    <label class="label">Nome do responsável 2</label>
+                    <input class="input" id="nome_responsavel2" type="text" placeholder="ex: xxxxxxxx"></input>
+
+
+                    <label class="label">Carteira de Identidade 2 </label>
+                    <input class="input" id="documento_responsavel2" type="text" placeholder="ex: xxxxxxxx"></input>
                     <br/>
 
 
-                    <br></br><br></br>
+                    <br></br>
                     <button class="button is-primary">Enviar</button>
 
                     <div><br></br>
                     </div>
-
-                    <h1 class="title is-3">Dados Escolar</h1>
-
-                    <label class="label">Horario de entrada</label>
-                    <input class="input" id="horario_entrada" type="text" placeholder="ex: 7:10 "></input>
-                    <label class="label">Horario de saída</label>
-                    <input class="input" id="horario_saida" type="text" placeholder="ex: 11:40 "></input>
-                    <label class="label">Sala de Aula</label>
-                    <input class="input" id="sala" type="text" placeholder="ex: 1° C "></input>
-
-
-                    <label class="label">Observações Adicionais:</label>
-
-
-                    <textarea class="textarea" id="dados_complementar" placeholder=""></textarea>
-
-
-
-
-
                     <div><br></br>
-                    </div>
+                        <div><br></br>
+                            <div><br></br>
+                                <div><br></br>
+                                    <div><br></br>
+                                        <div><br></br>
+                                            <h1 class="title is-3">Dados Escolar</h1>
 
-                    <button class="button is-primary">Enviar</button>
+                                            <label class="label">Horario de entrada</label>
+                                            <input class="input" id="horario_entrada" type="text" placeholder="ex: 7:10 "></input>
+                                            <label class="label">Horario de saída</label>
+                                            <input class="input" id="horario_saida" type="text" placeholder="ex: 11:40 "></input>
+                                            <label class="label">Sala de Aula</label>
+                                            <input class="input" id="sala" type="text" placeholder="ex: 1° C "></input>
+
+
+                                            <label class="label">Observações Adicionais:</label>
+
+
+                                            <textarea class="textarea" id="dados_complementar" placeholder=""></textarea>
 
 
 
 
 
-                </div>
-            </div>
-        </div>
+                                            <div><br></br>
+                                            </div>
+
+                                            <button class="button is-primary">Enviar</button>
 
 
-    </div>
 
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <script>
+                                document.getElementById("addImg")
+                                    .addEventListener("click", function() {
+
+                                        if (!document.getElementById("foto").hidden) {
+                                            document.getElementById("foto").hidden = true;
+                                        }
+
+
+
+                                        if (document.getElementById("img").hidden) {
+                                            document.getElementById("img").hidden = false;
+
+                                        } else {
+                                            document.getElementById("img").hidden = true;
+
+
+                                        }
+                                    }, false);
+
+                                document.getElementById("addFoto")
+                                    .addEventListener("click", function() {
+
+                                        if (!document.getElementById("img").hidden) {
+                                            document.getElementById("img").hidden = true;
+
+                                        }
+
+
+                                        if (document.getElementById("foto").hidden) {
+                                            document.getElementById("foto").hidden = false;
+
+                                        } else {
+                                            document.getElementById("foto").hidden = true;
+
+
+                                        }
+                                    }, false);
+                            </script>
 
 
 </body>
