@@ -15,17 +15,13 @@ function cadastrarCrianca() {
     var sexo = document.getElementById('sexoCrianca').value
     var carteiraIdentidade = document.getElementById('carteiraIdentidade').value
 
-
-
-
     console.log(nome);
-
     form.append("nome", nome);
     form.append('idade', idade);
-    //form.append('genero', sexo);
-    // form.append('carteiraIdentidade', carteiraIdentidade);
-    //form.append('dataNascimento', dataLocal);
-    //form.append('image',file);
+    form.append('genero', sexo);
+     form.append('dataNascimento', dataLocal);
+    form.append('carteiraIdentidade', carteiraIdentidade);
+    form.append('foto', file);
 
     const url = 'http://localhost:8080/api/aluno'
     const request = new Request(url, {
@@ -36,8 +32,6 @@ function cadastrarCrianca() {
     fetch(request)
         .then(response => response.text())
         .then(console.log)
-
-
 
 
     alert("Dados Cadastrados!")

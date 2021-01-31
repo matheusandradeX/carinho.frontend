@@ -9,17 +9,16 @@ let password = 'teste';
 let headers = new Headers();
 
 headers.append('Content-Type', 'text/json');
-//headers.append('Authorization', 'Basic ' + base64.encode(username + ":" + password));
+/*
 
 fetch(url, {
     method: 'GET',
     headers: headers,
 
 })
-
+*/
 
 function verificarLista() {
-
     var nome = document.getElementById("campoBusca").value
     if (nome == "") {
         console.log("Valor nulo")
@@ -27,7 +26,6 @@ function verificarLista() {
     } else {
         url = "http://localhost:8080/api/alunos" + "/" + nome
     }
-
 }
 
 
@@ -49,8 +47,6 @@ function getAluno() {
         .then(data => {
 
             listaAlunos = data
-            console.log(typeof mapAluno);
-            console.log(data);
             document.getElementById('titulo').innerHTML = `
          <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.content.length})</h1>
          <br>
@@ -62,10 +58,9 @@ function getAluno() {
 
     function alunoTemplate(aluno) {
         return `		
- 
+
        <div class="columns is-mobile is-centered">
        <div class="box">
-
        <div style="display: flex; justify-content: flex-end">
        <div>
            <div class="dropdown is-right is-hoverable">
@@ -97,12 +92,8 @@ function getAluno() {
          <div class="elementos">
          
             <div class="elemento">
-            
-
-           
+               
             <div>
-
-
                <strong>Nome:</strong> ${aluno.nome}
                </div>
                <div>
@@ -121,42 +112,27 @@ function getAluno() {
          </div>
         
       <footer class="card-footer">
-    
       
       <a href="#" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
       <a href="#" id="saida" class="card-footer-item"         onclick="saida(${aluno.id})">Saida</a>
       <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
       Responsável 
 </a>
-      
       </footer>
-      </div>
-     
+      </div>  
       </div>
 
    `
 
-
     }
 }
 
-
-
-
-
-
-
 function entrada(id) {
 
-
     const url = "http://localhost:8080/api/controle"
-
     var idAluno = id;
-
     var status = "ENTRADA"
-
     var post = { id: idAluno, tipoHorario: status }
-
     var json = JSON.stringify(post)
 
 
@@ -180,15 +156,10 @@ function entrada(id) {
 
 function saida(id) {
 
-
     const url = "http://localhost:8080/api/controle"
-
     var idAluno = id;
-
     var status = "SAIDA"
-
     var post = { id: idAluno, tipoHorario: status }
-
     var json = JSON.stringify(post)
 
 
@@ -201,27 +172,7 @@ function saida(id) {
 
     var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
-    M.toast({ html: 'Saida Relizada ' + myDate })
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 function resp(aluno) {
 
@@ -233,9 +184,7 @@ function resp(aluno) {
 
 
 function atualizarAluno(aluno) {
-
     var idAluno = aluno
-
 
     var atualizarAluno = listaAlunos.filter(function(aluno) {
         return aluno.id == idAluno
@@ -269,17 +218,11 @@ function atualizarAluno(aluno) {
 function postCrianca() {
 
     var nome = document.getElementById('nome_crianca').value
-
     var idade = document.getElementById('idade_crianca').value
-
     var sexo = document.getElementById('sexo_crianca').value
-
     var carteiraIdentidade = document.getElementById('carteira_identidade').value
-
     var post = { nome: nome, idade: idade, sexo: sexo, carteiraIdentidade: carteiraIdentidade }
-
     var json = JSON.stringify(post)
-
     const url = "http://localhost:8080/api/aluno"
 
     fetch(url, {
@@ -289,54 +232,16 @@ function postCrianca() {
     });
 
     document.getElementById('nome_crianca').value = ''
-
     document.getElementById('sexo_crianca').value = ''
-
     document.getElementById('carteira_identidade').value = ''
 
 
 }
 
 function responsavel(id) {
-
     var idResp = id
-
     sessionStorage.setItem('idResp', idResp);
-
-
 }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//DOMContentLoaded - it fires when initial HTML document has been completely loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // querySelector - it returns the element within the document that matches the specified selector
-    var dropdown = document.querySelector('.dropdown');
-
-    //addEventListener - attaches an event handler to the specified element.
-    dropdown.addEventListener('click', function(event) {
-
-        //event.stopPropagation() - it stops the bubbling of an event to parent elements, by preventing parent event handlers from being executed
-        event.stopPropagation();
-
-        //classList.toggle - it toggles between adding and removing a class name from an element
-        dropdown.classList.toggle('is-active');
-    });
-});
