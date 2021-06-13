@@ -57,10 +57,18 @@ function getAluno() {
         }).catch(err => console.log(err))
 
     function alunoTemplate(aluno) {
-        return `		
+        return `
+        
+        <style>
+        * {
+        margin:0px;
+        padding:0px;
 
-       <div class="columns is-mobile is-centered">
-       <div class="box">
+        }
+        </style>
+
+       <div class="columns is-mobile is-centered ">
+       <div class="box" style="width: 600px; margin-top:20px; ">
        <div style="display: flex; justify-content: flex-end">
        <div>
            <div class="dropdown is-right is-hoverable">
@@ -89,9 +97,9 @@ function getAluno() {
            </div>
        </div>
    </div>
-         <div class="elementos">
+         <div class="elementos" style="justify-content: center;">
          
-            <div class="elemento">
+            <div class="elemento" style="width:auto; font-size:20px;">
                
             <div>
                <strong>Nome:</strong> ${aluno.nome}
@@ -111,7 +119,7 @@ function getAluno() {
             </div>
          </div>
         
-      <footer class="card-footer">
+      <footer class="card-footer" style="font-size: 30px">
       
       <a href="#" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
       <a href="#" id="saida" class="card-footer-item"         onclick="saida(${aluno.id})">Saida</a>
@@ -182,13 +190,43 @@ function resp(aluno) {
 
 }
 
-
 function atualizarAluno(aluno) {
-    var idAluno = aluno
+    var id = aluno
+    console.log(aluno)
+    sessionStorage.setItem('idAluno', id);
+
+
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function atualizarAluno(aluno) {
+    
+    //window.location = "recebe_variavel.html?id="+id;
+
+
+    var idAluno; 
 
     var atualizarAluno = listaAlunos.filter(function(aluno) {
-        return aluno.id == idAluno
+        return   idAluno == aluno.id
     })
+    sessionStorage.setItem('id',idAluno);
+    /*
     console.log(atualizarAluno)
     var campoNome;
     var campoIdade;
@@ -198,7 +236,7 @@ function atualizarAluno(aluno) {
 
 
     var teste = atualizarAluno.map(preencherCampos).join('')
-
+    
 
     function preencherCampos(campo) {
         return campoNome = campo.nome,
@@ -206,7 +244,7 @@ function atualizarAluno(aluno) {
             campoSexo = campo.genero,
             campoCI = campo.carteiraIdentidade
     }
-
+    /*
     sessionStorage.setItem('idAluno', idaluno);
     sessionStorage.setItem('nome', campoNome);
     sessionStorage.setItem('idade', campoIdade);
@@ -214,7 +252,7 @@ function atualizarAluno(aluno) {
     sessionStorage.setItem('CarteiraIdentidade', campoCI)
 
 }
-
+*/
 function postCrianca() {
 
     var nome = document.getElementById('nome_crianca').value

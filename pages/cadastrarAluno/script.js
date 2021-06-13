@@ -1,3 +1,5 @@
+
+
 function cadastrarCrianca() {
 
     const form = new FormData();
@@ -9,6 +11,7 @@ function cadastrarCrianca() {
 
     console.log(typeof(tes2))
     console.log(typeof(dataLocal))
+
     var file = document.getElementById('imagemCrianca').files[0]
     var nome = document.getElementById('nomeCrianca').value
     var idade = document.getElementById('idadeCrianca').value
@@ -37,3 +40,23 @@ function cadastrarCrianca() {
     alert("Dados Cadastrados!")
 
 }
+
+/*
+const formData = new FormData();
+formData.append('id',5);
+formData.append('nome',"Matheus");
+formData.append('idade',12);
+formData.append('dataNascimento', "12/04/1234");
+
+const url = 'http://localhost:8080/api/aluno'
+ const request = new Request(url,  {
+  method: 'POST',
+  body: formData,
+});
+  
+  fetch(request)
+        .then(response => response.text())
+        .then(console.log)
+*/
+
+
