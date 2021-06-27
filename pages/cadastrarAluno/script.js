@@ -39,24 +39,7 @@ function cadastrarCrianca() {
 
     alert("Dados Cadastrados!")
 
+    window.location.replace("../cadastrarResponsavel/index.html")
 }
-
-/*
-const formData = new FormData();
-formData.append('id',5);
-formData.append('nome',"Matheus");
-formData.append('idade',12);
-formData.append('dataNascimento', "12/04/1234");
-
-const url = 'http://localhost:8080/api/aluno'
- const request = new Request(url,  {
-  method: 'POST',
-  body: formData,
-});
-  
-  fetch(request)
-        .then(response => response.text())
-        .then(console.log)
-*/
 
 

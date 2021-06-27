@@ -21,47 +21,10 @@
 <script type="text/javascript" src="js/materialize.min.js"></script>
 
 <body onload="getAluno()">
-    <nav class="navbar is-light">
-        <div class="navbar-brand">
-            <a class="navbar-item">
-                <img src="../../img/carinho-logo.png" width="112" height="28">
-            </a>
-            <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="navbarExampleTransparentExample" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" href="../Buscar/index.html">
-          Buscar
-        </a>
-                <a class="navbar-item" href="../controle/index.html">
-                        Controle
-                      </a>
-                     
-                <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-            Cadastrar
-          </a>
-                    <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="../cadastrarAluno/index.html">
-              Aluno
-            </a>
-                        <a class="navbar-item" href="../turmas/index.html">
-              Turmas
-            </a>
-            
-                    </div>
 
-                </div>
-                <a class="navbar-item" href="../Login/index.html">
-                    Sair
-                  </a>
-            </div>
-        </div>
-    </nav>
+   <div id=barra></div>
+   <script src="../barra/script.js"></script>
+
     <div>
         <br>
         <div class="columns is-mobile is-centered" style="margin-bottom: 10px;">
@@ -129,7 +92,7 @@
 
                 </div>
                 <footer class="card-footer">
-
+                  
                     <a href="../alterarAluno/index.html" class="card-footer-item" onclick="atualizarAluno(${aluno.id})">Editar</a>
                     <a href="#" class="card-footer-item" onclick="remove(${aluno.id})">Deletar</a>
                 </footer>

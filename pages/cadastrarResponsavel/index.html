@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cadastrar</title>
+    <meta charset="utf-8">
+
+
+
+    <link href="../../bulma.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <div id=barra></div>
+    <script src="../barra/script.js"></script>
+    
+    <div>
+        <br>
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+                <div class="control">
+                  
+                    <h1 class="title is-3">Dados dos Responsáveis</h1>
+
+                    <label class="label">Nome do responsável </label>
+                    <input class="input" id="nome_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br>
+
+                    <label class="label">Carteira de Identidade  </label>
+                    <input class="input" id="documento_responsavel" type="text" placeholder="ex: xxxxxxxx"></input>
+
+                    <label class="label">Telefone  </label>
+                    <input class="input" id="telefone" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br/>
+                    <label class="label">Data de Nascimento</label>
+                            <input type="date" id="dataNascimento" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+                    <label class="label">Foto de Identificação</label>
+                    <div id="img" >
+                        <label class="label">Escolher Imagem</label>
+                        <input type="file" class="form-control" id="imagem"><br>
+                    </div>
+                    <BR>
+
+                    <label class="label">Tipo Responsável</label>
+                    <div class="select">
+                        <select id="tipo">
+        <option>--</option>
+        <option>PAI</option>
+        <option>MAE</option>
+        <option>RESPONSAVEL</option>
+        <option>PARENTE1GRAU</option>
+        <option>BABA</option>
+        <option>CONSELHOTUTELAR</option>
+      </select>
+                
+                    <a  class="button is-link"  href="../cadastrarAluno/index.html">Voltar</a>
+                    <button class="button is-primary"  onclick="cadastrarResponsavel()">Enviar</button>
+                    
+                    
+                  <script src="script.js"></script>
+</body>
+
+</html>

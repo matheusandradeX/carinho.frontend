@@ -9,14 +9,7 @@ let password = 'teste';
 let headers = new Headers();
 
 headers.append('Content-Type', 'text/json');
-/*
 
-fetch(url, {
-    method: 'GET',
-    headers: headers,
-
-})
-*/
 
 function verificarLista() {
     var nome = document.getElementById("campoBusca").value
@@ -58,7 +51,6 @@ function getAluno() {
 
     function alunoTemplate(aluno) {
         return `
-        
         <style>
         * {
         margin:0px;
@@ -130,40 +122,41 @@ function getAluno() {
       </div>  
       </div>
 
+      <div id="snackbar">Some text some message..</div>
+
+
    `
 
     }
 }
 
 function entrada(id) {
-
     const url = "http://localhost:8080/api/controle"
     var idAluno = id;
     var status = "ENTRADA"
     var post = { id: idAluno, tipoHorario: status }
     var json = JSON.stringify(post)
 
-
     fetch(url, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: json
     });
-
     var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 
-    M.toast({ html: 'Entrada Relizada ' + myDate })
-    var $toastContent = $('<span>I am toast content</span>').add($('<button class="btn-flat toast-action">Undo</button>'));
-    Materialize.toast($toastContent, 10000);
 
 
-
-
+    toast("Entrada Realizada " ,myDate);
 
 }
 
 function saida(id) {
 
+
+
+
+
+    
     const url = "http://localhost:8080/api/controle"
     var idAluno = id;
     var status = "SAIDA"
@@ -176,9 +169,9 @@ function saida(id) {
         headers: { 'Content-Type': 'application/json' },
         body: json
     });
-
-
     var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+    
+    toast("Saida Realizada " ,myDate);
 
 }
 
@@ -194,65 +187,8 @@ function atualizarAluno(aluno) {
     var id = aluno
     console.log(aluno)
     sessionStorage.setItem('idAluno', id);
-
-
     
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-function atualizarAluno(aluno) {
-    
-    //window.location = "recebe_variavel.html?id="+id;
-
-
-    var idAluno; 
-
-    var atualizarAluno = listaAlunos.filter(function(aluno) {
-        return   idAluno == aluno.id
-    })
-    sessionStorage.setItem('id',idAluno);
-    /*
-    console.log(atualizarAluno)
-    var campoNome;
-    var campoIdade;
-    var campoSexo;
-    var campoCI;
-
-
-
-    var teste = atualizarAluno.map(preencherCampos).join('')
-    
-
-    function preencherCampos(campo) {
-        return campoNome = campo.nome,
-            campoIdade = campo.idade,
-            campoSexo = campo.genero,
-            campoCI = campo.carteiraIdentidade
-    }
-    /*
-    sessionStorage.setItem('idAluno', idaluno);
-    sessionStorage.setItem('nome', campoNome);
-    sessionStorage.setItem('idade', campoIdade);
-    sessionStorage.setItem('sexo', campoSexo);
-    sessionStorage.setItem('CarteiraIdentidade', campoCI)
-
-}
-*/
 function postCrianca() {
 
     var nome = document.getElementById('nome_crianca').value
@@ -272,8 +208,6 @@ function postCrianca() {
     document.getElementById('nome_crianca').value = ''
     document.getElementById('sexo_crianca').value = ''
     document.getElementById('carteira_identidade').value = ''
-
-
 }
 
 function responsavel(id) {
@@ -281,5 +215,14 @@ function responsavel(id) {
     sessionStorage.setItem('idResp', idResp);
 }
 
+function toast(nome,horario) {
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    // Add the "show" class to DIV
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show",''); }, 3000);
+ document.getElementById("snackbar").innerHTML= `${nome} ${horario} `
 
+  }
 
