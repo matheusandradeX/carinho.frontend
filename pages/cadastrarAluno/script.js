@@ -38,8 +38,8 @@ function cadastrarCrianca() {
 
 
     alert("Dados Cadastrados!")
-
     window.location.replace("../cadastrarResponsavel/index.html")
+
 }
 
 

@@ -44,5 +44,9 @@ document.getElementById("barra").innerHTML=`
                   </a>
             </div>
         </div>
+        <div class="navbar-dropdown is-boxed">
+                        <a class="navbar-item" href="../AlunoResponsavel/index.html">
+              Vincular
+            </a>
     </nav>
 `

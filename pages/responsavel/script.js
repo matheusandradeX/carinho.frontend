@@ -28,11 +28,9 @@ function responsavelTemplate(responsavel) {
                <strong>Tipo de Responsavel:</strong> ${responsavel.tipo_responsavel}
                </div>
                <div>
-               <strong>Telefone 1:</strong> ${responsavel.telefone1}
+               <strong>Telefone 1:</strong> ${responsavel.telefone}
                </div>
-               <div>
-               <strong>Telefone 2:</strong> ${responsavel.telefone2}
-               </div>
+               
             </div>
             <div class="elemento2">
                <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${responsavel.foto}" />
