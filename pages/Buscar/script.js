@@ -41,10 +41,10 @@ function getAluno() {
 
             listaAlunos = data
             document.getElementById('titulo').innerHTML = `
-         <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.content.length})</h1>
+         <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
          <br>
          `
-            document.getElementById('teste').innerHTML = data.content.map(alunoTemplate).join(' ')
+            document.getElementById('teste').innerHTML = data.map(alunoTemplate).join(' ')
 
 
         }).catch(err => console.log(err))

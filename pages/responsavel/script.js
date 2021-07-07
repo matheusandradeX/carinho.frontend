@@ -46,3 +46,13 @@ function responsavelTemplate(responsavel) {
 
    `
 }
+
+
+function removeResonsavel(di) {
+   fetch(urlRemove + idAluno, { method: 'DELETE' }).then(() => {
+       location.reload();
+   }).catch(err => {
+       console.error(err)
+       alert(erro)
+   });
+}

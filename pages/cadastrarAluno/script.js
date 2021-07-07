@@ -1,7 +1,18 @@
 
 
-function cadastrarCrianca() {
+var fotoNova;
 
+
+
+
+
+
+function cadastrarCrianca(x) {
+    fotoNova = x;
+
+    if(fotoNova !== null){
+        alert("gravou dados da foto")
+    }
     const form = new FormData();
 
     var tes2 = document.getElementById('dataNascimento').value
@@ -9,10 +20,30 @@ function cadastrarCrianca() {
     var dataLocal = dateObj.toLocaleDateString('pt-BR', { timeZone: 'UTC' })
 
 
-    console.log(typeof(tes2))
-    console.log(typeof(dataLocal))
+    
+// var file = document.getElementById('imagemCrianca').files[0];
+  
+   // var file = document.getElementById('pegarfoto').files[0];
+     
+    /*
+    if( document.getElementById('imagemCrianca').files[0]==null || document.getElementById('imagemCrianca').files[0]!==null=='undefined'){
+        var file = document.getElementById('pegarfoto').files[0];
+        alert("ENTROU AQUI")
+    }else{
 
-    var file = document.getElementById('imagemCrianca').files[0]
+      
+
+        var file = document.getElementById('imagemCrianca').files[0];
+        alert("NÃO E PRA ENTRAR")
+    }
+    
+    */
+
+
+
+
+
+
     var nome = document.getElementById('nomeCrianca').value
     var idade = document.getElementById('idadeCrianca').value
     var sexo = document.getElementById('sexoCrianca').value
@@ -24,7 +55,7 @@ function cadastrarCrianca() {
     form.append('genero', sexo);
      form.append('dataNascimento', dataLocal);
     form.append('carteiraIdentidade', carteiraIdentidade);
-    form.append('foto', file);
+    form.append('foto', fotoNova);
 
     const url = 'http://localhost:8080/api/aluno'
     const request = new Request(url, {

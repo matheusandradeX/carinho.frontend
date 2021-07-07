@@ -29,6 +29,6 @@ function cadastrarResponsavel() {
 
 
     alert("Dados Cadastrados!")
-
+    window.location.replace("../AlunoResponsavel/index.html")
 }
 
