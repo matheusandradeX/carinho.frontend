@@ -44,8 +44,21 @@ function getAluno() {
          <h1 class="title is-2" style="text-align: center">Lista de Alunos (${data.length})</h1>
          <br>
          `
-            document.getElementById('teste').innerHTML = data.map(alunoTemplate).join(' ')
+         
 
+  document.getElementById('teste').innerHTML = data.map(alunoTemplate).join(' ')
+    
+
+           
+
+       //  document.getElementById('n').innerHTML = "teste "
+       
+       
+       //document.getElementById("remove").style.visibility ="hidden";
+       document.getElementsByName("remove").style.visibility ="hidden";
+
+       //document.getElementsByTagName("button")
+     
 
         }).catch(err => console.log(err))
 
@@ -58,32 +71,37 @@ function getAluno() {
 
         }
         </style>
+        
+        <script>
+        alert("teste");
+        </script>
 
+        
        <div class="columns is-mobile is-centered ">
        <div class="box" style="width: 600px; margin-top:20px; ">
        <div style="display: flex; justify-content: flex-end">
-       <div>
+       <div id="remove" class="remove" name="remove" >
            <div class="dropdown is-right is-hoverable">
                <div class="dropdown-trigger">
-                   <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
-       <span>Menu</span> 
-       <span class="icon is-small"> 
-           <i class="fas fa-angle-down"
-           aria-hidden="true"></i> 
-       </span> 
-       </button>
+                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
+                    <span>Menu</span> 
+                    <span class="icon is-small"> 
+                    <i class="fas fa-angle-down"     aria-hidden="true"></i> 
+                    </span> 
+                </button>
                </div>
-               <div class="dropdown-menu" id="dropdown-menu" role="menu">
+               <div class="dropdown-menu" id="dropdown-menu1" role="menu">
                    <div class="dropdown-content">
+
                        <a href="../alterarAluno/index.html" class="dropdown-item"   onclick="atualizarAluno(${aluno.id})"     >  <i class="material-icons">edit</i>
                            Editar
-       </a>
-                       <a href="#" class="dropdown-item"    onclick="remove(${aluno.id})"> <i class="material-icons">delete</i>
+                        </a>
+                        <a href="#" class="dropdown-item"    onclick="remove(${aluno.id})"> <i class="material-icons">delete</i>
                            Deletar
-       </a>
-                       <a href="../responsavel/index.html" class="dropdown-item"             onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
+                        </a>
+                        <a href="../responsavel/index.html" class="dropdown-item"             onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
                            Responsável 
-       </a>
+                        </a>
                    </div>
                </div>
            </div>
@@ -226,3 +244,5 @@ function toast(nome,horario) {
 
   }
 
+
+  document.getElementsByClassName("remove").style.visibility ="hidden";

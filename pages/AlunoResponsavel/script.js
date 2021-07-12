@@ -6,7 +6,7 @@ var url = "http://localhost:8080/api/alunos"
         .then(response => response.json())
         .then(data => {
 
-            document.getElementById('dados').innerHTML = data.content.map(alunoTemplate).join(' ')
+            document.getElementById('dados').innerHTML = data.map(alunoTemplate).join(' ')
 
 
         }).catch(err => console.log(err))

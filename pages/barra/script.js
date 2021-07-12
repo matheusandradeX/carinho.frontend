@@ -18,6 +18,9 @@ document.getElementById("barra").innerHTML=`
                 <a class="navbar-item" href="../controle/index.html">
                         Controle
                       </a>
+                      <a class="navbar-item" href="../turmas2/index.html">
+                        Turmas
+                      </a>
                      
                 <div class="navbar-item has-dropdown is-hoverable">
                     <a class="navbar-link">
@@ -35,10 +38,15 @@ document.getElementById("barra").innerHTML=`
                         <a class="navbar-item" href="../turmas/index.html">
               Turmas
             </a>
-            
+            <a class="navbar-item" href="../AlunoResponsavel/index.html">
+            Vincular Dados
+          </a>
                     </div>
 
                 </div>
+                <a class="navbar-item" href="../Usuarios/index.html">
+                Usuários
+              </a>
                 <a class="navbar-item" href="../Login/index.html">
                     Sair
                   </a>

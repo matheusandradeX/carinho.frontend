@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Cadastrar</title>
+    <meta charset="utf-8">
+
+
+
+    <link href="../../bulma.min.css" rel="stylesheet">
+ 
+
+
+</head>
+
+<body>
+    <div id=barra></div>
+    <script src="../barra/script.js"></script>
+    
+    <div>
+        <br>
+        <div class="columns is-mobile is-centered">
+            <div class="column is-half">
+                <div class="control">
+                  
+                    <h1 class="title is-3">Cadastrar Perfil</h1>
+
+                    <label class="label">Nome </label>
+                    <input class="input" id="nome" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br>
+
+                    <label class="label">Usuario </label>
+                    <input class="input" id="usuario" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br>
+                    <label class="label">Senha </label>
+                    <input class="input" id="senha" type="password" placeholder="ex: xxxxxxxx"></input>
+
+                    <label class="label">Email </label>
+                    <input class="input" id="email" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <br>
+                  
+
+                    <label class="label">Tipo de Perfil</label>
+                    <div class="select">
+                        <select id="perfil">
+        
+        <option>MONITOR</option>
+        <option>PROFESSOR</option>
+        <option>ADMINISTRADOR</option>
+      </select>
+      <br>
+                
+        
+                    <button class="button is-primary"  onclick="cadastrar()">Cadastrar</button>
+                  <script src="script.js"></script>
+</body>
+
+</html>

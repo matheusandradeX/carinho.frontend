@@ -21,7 +21,7 @@ function cadastrarCrianca(x) {
 
 
     
-// var file = document.getElementById('imagemCrianca').files[0];
+var file = document.getElementById('imagemCrianca').files[0];
   
    // var file = document.getElementById('pegarfoto').files[0];
      
@@ -55,7 +55,7 @@ function cadastrarCrianca(x) {
     form.append('genero', sexo);
      form.append('dataNascimento', dataLocal);
     form.append('carteiraIdentidade', carteiraIdentidade);
-    form.append('foto', fotoNova);
+    form.append('foto', file);
 
     const url = 'http://localhost:8080/api/aluno'
     const request = new Request(url, {
