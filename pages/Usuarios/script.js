@@ -9,10 +9,11 @@ function cadastrar() {
     var perfil = document.getElementById('perfil').value
     var usuario = document.getElementById('usuario').value
     var senha = document.getElementById('senha').value
+    var senha2 = document.getElementById('senha2').value
     var email = document.getElementById('email').value
 
-
-    console.log(nome);
+    if(senha === senha2){
+ console.log(nome);
    form.append("nome", nome);
    form.append('perfil', perfil);
     form.append('usuario',usuario);
@@ -35,6 +36,13 @@ function cadastrar() {
             
         })
 
+
+
+    }else{
+        alert("As senhas não são iguais")
+    }
+
+   
 
     
 

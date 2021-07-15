@@ -42,9 +42,7 @@ document.getElementById("barra").innerHTML=`
                     </div>
 
                 </div>
-                <a class="navbar-item" href="../Usuarios/index.html">
-                Usuários
-              </a>
+            
                 <a class="navbar-item" href="../Login/index.html">
                     Sair
                   </a>
