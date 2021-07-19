@@ -39,7 +39,9 @@ function getAluno() {
                     document.getElementById('teste').innerHTML = data.map(professor)
                   break;
                 default:
-                    document.getElementById('teste').innerHTML="  "
+                   alert("Usuário não Autenticado")
+                   window.location.replace("../Login/index.html") 
+
               }
               
             document.getElementById('titulo').innerHTML = `

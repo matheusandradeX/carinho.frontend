@@ -1,28 +1,15 @@
 var url = "http://localhost:8080/api/alunos"
-
-
-
     fetch(url)
         .then(response => response.json())
         .then(data => {
 
             document.getElementById('dados').innerHTML = data.map(alunoTemplate).join(' ')
-
-
         }).catch(err => console.log(err))
 
     function alunoTemplate(aluno) {
-        return `
-        
+        return `  
         <option value="${aluno.id}"> ${aluno.nome}</option><br/>
-      
-
-       
-
-       
-
    `
-
 }
 
 var url2 = "http://localhost:8080/api/responsaveis"

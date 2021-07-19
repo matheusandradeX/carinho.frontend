@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/api/alunos"
+var url = "http://localhost:8080/api/turma/14"
 
 
 
@@ -27,7 +27,9 @@ var url = "http://localhost:8080/api/alunos"
     
        <tr>
        <td>${aluno.nome}</td>
-       <td> ${aluno.idade}</td>
+       <td>${aluno.carteira_identidade}</td>
+       <td>${aluno.genero}</td>
+       <td>${aluno.numero_turma}</td>
        </tr>
     
         

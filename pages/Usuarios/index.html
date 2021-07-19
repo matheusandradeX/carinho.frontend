@@ -4,13 +4,12 @@
 <head>
     <title>Cadastrar</title>
     <meta charset="utf-8">
-
-
-
     <link href="../../bulma.min.css" rel="stylesheet">
- 
-
-
+    <style>
+        .control{
+            width: 50%;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,21 +25,26 @@
                     <h1 class="title is-3">Cadastrar Perfil</h1>
 
                     <label class="label">Nome </label>
-                    <input class="input" id="nome" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <input class="input" id="nome" type="text"></input>
                     <br>
-
+                    <label class="label">Carteira de Identidade </label>
+                    <input class="input" id="carteira_identidade" type="text" placeholder="xx.xxx.xxx-xx" ></input>
+                    <br>
+                    <label class="label">CPF</label>
+                    <input class="input" id="cpf" type="text"  placeholder="xxx.xxx.xxx-xx"  id="cpf" onkeyup="setMask(this)"   maxlength="14"  ></input> 
+                      
+                    <br>
                     <label class="label">Usuario </label>
-                    <input class="input" id="usuario" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <input class="input" id="usuario" type="text" ></input>
                     <br>
                     <label class="label">Senha </label>
-                    <input class="input" id="senha" type="password" placeholder="ex: xxxxxxxx"></input>
+                    <input class="input" id="senha" type="password" ></input>
                     <br>
                     <label class="label">Confimar Senha </label>
-                    <input class="input" id="senha2" type="password" placeholder="ex: xxxxxxxx"></input>
+                    <input class="input" id="senha2" type="password" ></input>
                     <label class="label">Email </label>
-                    <input class="input" id="email" type="text" placeholder="ex: xxxxxxxx"></input>
+                    <input class="input" id="email" type="text" ></input>
                     <br>
-                  
 
                     <label class="label">Tipo de Perfil</label>
                     <div class="select">
