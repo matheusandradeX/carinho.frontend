@@ -34,7 +34,7 @@ function teste(variavel){
     console.log(obj.perfil);
     sessionStorage.setItem('perfil', obj.perfil);
 
-    window.location.replace("../Buscar/index.html")
+    window.location.replace("pages/Buscar/index.html")
 
 
   }else{

@@ -1,25 +1,17 @@
 
-
-
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Cadastrar</title>
     <meta charset="utf-8">
-
-
-
     <link href="../../bulma.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-
+    <script type="text/javascript" src="./webcam.min.js.baixados"></script>
 
 </head>
 
 <body>
-
-
-    
     <div id=barra></div>
     <script src="../barra/script.js"></script>
     <div>
@@ -36,7 +28,6 @@
                             <input class="input" id="idadeCrianca" type="text" placeholder="ex: 11 "></input>
                             <label class="label">Data de Nascimento</label>
                             <input type="date" id="dataNascimento" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
-
                             <label class="label">Sexo</label>
                             <div class="select">
                                 <select id="sexoCrianca">
@@ -61,81 +52,23 @@
                             <br>
                             <div id="foto" hidden>
                                 <label class="label">Tirar Foto</label>
-
-
                                 <br>
                                 <div>
                                     <div id="my_camera" style="width: 320px; height: 240px;">
                                         <div></div><video autoplay="autoplay" playsinline="playsinline" style="width: 320px; height: 240px;"></video></div>
-
                                     <div id="results"></div>
-
                                     <button class="button is-primary" onclick="take_snapshot()" class="btn btn-outline-primary">Tirar Foto</button>
-
-
                                 </div>
 
-                                <!-- First, include the Webcam.js JavaScript Library -->
-                                <script type="text/javascript" src="./webcam.min.js.baixados"></script>
-
-                                <!-- Configure a few settings and attach camera -->
-                                <script language="JavaScript">
-                                    Webcam.set({
-                                        width: 320,
-                                        height: 240,
-                                        image_format: 'jpeg',
-                                        jpeg_quality: 100
-                                    });
-                                    Webcam.attach('#my_camera');
-                                </script>
-
-                                <!-- A button for taking snaps -->
-
-
-                                <br>
-                                <br>
-
-                                <!-- Code to handle taking the snapshot and displaying it locally -->
-                                <script language="JavaScript">
-
-                                    function take_snapshot() {
-                                        // take snapshot and get image data
-                                        Webcam.snap(function(data_uri) {
-                                            
-                                            globalteste=data_uri;
-                                            
-                                            // display results in page
-                                            document.getElementById('results').innerHTML =
-                                                '<h2>Aqui está sua foto</h2>' +
-                                                '<img id="pegarfoto" src="' + data_uri + '"/>';
-                                        });
-                                    }
-                                </script>
-
-
+                                
                             </div>
                             <label class="label"> Turma </label>
                             <div class="select">
                                 <select id="turma">
                              </select>
                           <br>  
-
-
-
-
-
-
-
                             <br>
-
                             <button class="button is-primary" id="upload" onclick="cadastrarCrianca()"  class="btn btn-outline-primary">Enviar</button>
-
-
-
-
-
-
-
                         </div>
                     </div>
 
@@ -155,18 +88,14 @@
                                     .addEventListener("click", function() {
 
                                         if (!document.getElementById("foto").hidden) {
-                                            document.getElementById("foto").hidden = true;
                                         }
-
 
 
                                         if (document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = false;
-
+                                       
                                         } else {
                                             document.getElementById("img").hidden = true;
-
-
                                         }
                                     }, false);
 
@@ -175,15 +104,20 @@
 
                                         if (!document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = true;
-
+                                      
                                         }
 
                                         if (document.getElementById("foto").hidden) {
                                             document.getElementById("foto").hidden = false;
-
+                                            Webcam.set({
+                                        width: 320,
+                                        height: 240,
+                                        image_format: 'jpeg',
+                                        jpeg_quality: 100
+                                    });
+                                    Webcam.attach('#my_camera');
                                         } else {
                                             document.getElementById("foto").hidden = true;
-
 
                                         }
                                     }, false);

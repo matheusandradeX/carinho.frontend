@@ -33,7 +33,7 @@ function barraAdministrador(){
                 <a class="navbar-item" href="../controle/index.html">
                         Controle
                       </a>
-                      <a class="navbar-item" href="../turmas2/index.html">
+                      <a class="navbar-item" href="../turmas/index.html">
                         Turmas
                       </a>
                      
@@ -48,7 +48,7 @@ function barraAdministrador(){
             <a class="navbar-item" href="../cadastrarResponsavel/index.html">
   Responsavel
 </a>
-                        <a class="navbar-item" href="../turmas/index.html">
+                        <a class="navbar-item" href="../cadastrarTurma/index.html">
               Turmas
             </a>
             <a class="navbar-item" href="../AlunoResponsavel/index.html">

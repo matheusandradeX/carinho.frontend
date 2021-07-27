@@ -13,7 +13,6 @@ var url = "http://localhost:8080/api/login/professores"
 }
 
 
-
 function cadastrar(){
     const url = "http://localhost:8080/api/cadastrarTurma"
     const form = new FormData();
@@ -21,8 +20,6 @@ function cadastrar(){
     var professorResponsavel = document.getElementById('dados').value
     var numeroTurma = document.getElementById('numeroTurma').value
    
-
-    
     form.append("numeroTurma", numeroTurma);
     form.append('professorResponsavel', professorResponsavel);
    
@@ -35,7 +32,6 @@ function cadastrar(){
     fetch(request)
         .then(response => response.text())
         .then(console.log)
-
 
     alert("Dados Cadastrados!")
 }
