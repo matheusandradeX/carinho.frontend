@@ -15,22 +15,32 @@
                 <div style="text-align: center;">
                     <h1 class="title is-3" >Turmas</h1>
                 </div>
+                <br>
                 <div style="width: 60%; margin:0 auto">
+
+                <div style="display: flex;">
+
+
+                <input   style="margin-right: 4px;  height: 45px;  " type="text"   id="myInput" onkeyup="myFunction()" placeholder="Procurar por nome" title="Type in a name"/>
+                
+                <button  style="height: 45px; margin-right: 4px;" class="button is-primary " onclick="buscar()"  style="height: 45px; font-size: 20px;"><i class="material-icons">search</i>Buscar</button>
+                  <div class="select" style="height: 45px;">
+                  <select id="dados"    style=" height: 45px;">
+                  </select>
+                </div>
+
+                </div>
             
-                <input type="text" style="width: 75%;" id="myInput" onkeyup="myFunction()" placeholder="Procurar por nome" title="Type in a name">
-                  <div class="select">
-                  <select id="dados">
-                </select>
-                  </div>
-                  <button class="button is-primary " onclick="buscar()"  style="height: 45px; font-size: 20px;"><i class="material-icons">search</i>Buscar</button>
-                  
+                
+
+
                 <table id="myTable">
                   <tr class="header">
                     <th style="max-width:25%;">Nome</th>
                     <th style="max-width:25%;">Carteira Identidade</th>
                     <th style="max-width:25%;">Genero</th>
                     <th style="max-width:25%;">Turma</th>
-
+                    <th style="max-width:25%;">Ações</th>  
                   </tr>
                   <tbody id="tabela">
               

@@ -32,14 +32,11 @@ function cadastrarCrianca() {
      form.append('dataNascimento', dataLocal);
     form.append('carteiraIdentidade', carteiraIdentidade);
     form.append('foto', file);
-    form.append('turma',turmas)
+    form.append('turma',14)
 
     for (var pair of form.entries()) {
         console.log(pair[0]+ ', ' + pair[1]); 
     }
-
-
-  
 
 
 
@@ -56,6 +53,9 @@ function cadastrarCrianca() {
             document.getElementById('results').innerHTML =
                 '<h2>Aqui está sua foto</h2>' +
                 '<img id="pegarfoto" src="' + data_uri + '"/>';
+            console.log(globalteste)
+
+
         });
     }
 

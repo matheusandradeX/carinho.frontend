@@ -24,12 +24,26 @@ function remove(idAluno) {
     });
 }
 
+
 function getAluno() {
     verificarLista();
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            listaAlunos = data
+          
+           
+    const form = new FormData();
+    listaAlunos = data
+         
+
+            
+
+
+            console.log("---------------");
+            
+            console.log(data[0].turma.id);
+
+
 
             switch(perfil) {
                 case 'ADMINISTRADOR':
@@ -71,6 +85,7 @@ function entrada(id) {
     toast("Entrada Realizada " ,myDate);
 }
 
+
 function saida(id) {
     const url = "http://localhost:8080/api/controle"
     var idAluno = id;
@@ -92,10 +107,19 @@ function resp(aluno) {
     sessionStorage.setItem('idAluno', id);
 }
 
-function atualizarAluno(aluno) {
+function atualizarAluno(aluno,turma) {
     var id = aluno
+    var id_turma = turma
     console.log(aluno)
     sessionStorage.setItem('idAluno', id);  
+    
+    sessionStorage.setItem('id_turma',id_turma);
+
+
+
+
+
+
 }
 
 
@@ -104,16 +128,8 @@ function responsavel(id) {
     sessionStorage.setItem('idResp', idResp);
 }
 
-function toast(nome,horario) {
-    // Get the snackbar DIV
-    var x = document.getElementById("snackbar");
-    // Add the "show" class to DIV
-    x.className = "show";
-    // After 3 seconds, remove the show class from DIV
-    setTimeout(function(){ x.className = x.className.replace("show",''); }, 3000);
- document.getElementById("snackbar").innerHTML= `${nome} ${horario} `
 
-  }
+
 
   function professor(aluno){
       return `
@@ -133,7 +149,7 @@ function toast(nome,horario) {
        <div class="elementos" style="justify-content: center;">
           <div class="elemento" style="width:auto; font-size:20px;"> 
           <div>
-             <strong>Nome:</strong> ${aluno.nome}
+             <strong>Nome:</strong> ${aluno.nome} ${aluno.turma.id}
              </div>
              <div>
              <strong>Idade:</strong> ${aluno.idade}
@@ -152,13 +168,15 @@ function toast(nome,horario) {
     <footer class="card-footer" id="footer"style="font-size: 30px">
     <a href="#" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
     <a href="#" id="saida" class="card-footer-item"    onclick="saida(${aluno.id})">Saida</a>
-    <a href="../responsavel/index.html" class="card-footer-item" " onclick="resp(${aluno.id})"   > <i class="material-icons">people</i>
+    <a href="../responsavel/index.html" class="card-footer-item" " onclick="resp(${aluno.id}${aluno.turma.id})"   > <i class="material-icons">people</i>
     Responsável 
   </a>
     </footer>
     </div>  
     </div>
-      `
+     
+
+    `
    
   }
 
@@ -203,7 +221,7 @@ function toast(nome,horario) {
      <div class="elementos" style="justify-content: center;">
         <div class="elemento" style="width:auto; font-size:20px;"> 
         <div>
-           <strong>Nome:</strong> ${aluno.nome}
+           <strong>Nome:</strong> ${aluno.nome} ${aluno.turma.id}
            </div>
            <div>
            <strong>Idade:</strong> ${aluno.idade}
@@ -228,8 +246,23 @@ function toast(nome,horario) {
   </footer>
   </div>  
   </div>
- 
+  
 `
 
 }
 
+function toast(nome,horario) {
+
+    alert(" cHEGEI  ")
+    // Get the snackbar DIV
+    var x = document.getElementById("snackbar");
+    // Add the "show" class to DIV
+    x.className = "show";
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show",''); }, 3000);
+ document.getElementById("snackbar").innerHTML= `${nome} ${horario} `
+
+
+
+  }
+ 
