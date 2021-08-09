@@ -16,7 +16,7 @@ function turmaTemplate(turma) {
 function buscar(){
 
     var idTurma = document.getElementById('dados').value
-    const urlTurma = "http://localhost:8080/api/turma/"+idTurma
+    const urlTurma = "http://localhost:8080/api/frequencia/"+idTurma
     fetch(urlTurma)
            .then(response => response.json())
            .then(data => {
@@ -28,11 +28,10 @@ function buscar(){
            return `      
           <tr>
           <td>${aluno.nome}</td>
-          <td>${aluno.carteira_identidade}</td>
-          <td>${aluno.genero}</td>
-          <td>${aluno.numero_turma}</td>
-          <td>${aluno.id}</td>
-          <td>  <a  href="../alterarAluno/index.html">  <i class="material-icons">edit</i> </a>  <a  onclick="remove(${aluno.id})"  >  <i  style="color:red"class="material-icons">delete</i>  </a>  </td> 
+          <td>${aluno.horario}</td>
+          <td>${aluno.tipo_Horario}</td>
+         
+        
           </tr>
       `
        }  
@@ -40,15 +39,3 @@ function buscar(){
 
 
 
-
-
-function remove(idAluno) {
-
-    alert("aqui "+ idAluno)
-    fetch(urlRemove + idAluno, { method: 'DELETE' }).then(() => {
-        location.reload();
-    }).catch(err => {
-        console.error(err)
-        alert(erro)
-    });
-}

@@ -15,7 +15,7 @@ var url = "http://localhost:8080/api/turmas"
 var fotoNova;
 
 function cadastrarCrianca() {
- 
+   const url = "http://localhost:8080/api/aluno"
     const form = new FormData();
     var dateObj = new Date(document.getElementById('dataNascimento').value)
     var dataLocal = dateObj.toLocaleDateString('pt-BR', { timeZone: 'UTC' })  
@@ -38,9 +38,25 @@ function cadastrarCrianca() {
         console.log(pair[0]+ ', ' + pair[1]); 
     }
 
+  
+  
+
+ 
+   
+    const request = new Request(url, {
+        method: 'POST',
+        body: form
+    });
+
+    fetch(request)
+        .then(response => response.text())
+        .then(console.log)
+
+    alert("Dados Cadastrados!")
+}
 
 
-    }
+
 
     function take_snapshot() {
 

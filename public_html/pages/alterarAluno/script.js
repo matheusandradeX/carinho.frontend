@@ -13,7 +13,7 @@ function turmaTemplate(turma) {
 `
 }
  
- 
+
  
  function putAluno() {
 
