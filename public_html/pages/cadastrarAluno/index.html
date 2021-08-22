@@ -43,7 +43,13 @@
                             <label class="label">Carteira de Identidade</label>
                             <input class="input" id="carteiraIdentidade" type="text" placeholder="ex: xxxxxxxx"></input>
                             <br>
+                            
                             <br>
+                            <label class="label"> Turma </label>
+                            <div class="select">
+                                <select id="turma">
+                             </select>
+                             <br>
                             <label class="label">Foto de Identificação</label>
                             <button class="button" id="addImg" style="margin-bottom: 10px">Adicionar imagem</button>
                             <button class="button" id="addFoto" style="margin-bottom: 10px">Tirar foto</button>
@@ -61,33 +67,62 @@
                                         <div></div><video autoplay="autoplay" playsinline="playsinline" style="width: 320px; height: 240px;"></video></div>
                                     <div id="results"></div>
                                     <button class="button is-primary" onclick="take_snapshot()" class="btn btn-outline-primary">Tirar Foto</button>
+                                    <br/>
+                                    <br/>
+                                  
                                 </div>  
                             </div>
-                            <label class="label"> Turma </label>
-                            <div class="select">
-                                <select id="turma">
-                             </select>
+                           
                           <br>  
                             <br>
-                            <button class="button is-primary" id="upload" onclick="cadastrarCrianca()"  class="btn btn-outline-primary">Enviar</button>
+                            <button class="button is-primary" hidden id="upload1" onclick="cadastrarCrianca()"  class="btn btn-outline-primary">Enviar</button>
                         </div>
                     </div>
                     <script src="script.js">
                     </script>
                     </section>
                             <script>
+
+
+
+
+
+
+
                                 document.getElementById("addImg")
                                     .addEventListener("click", function() {
 
+
+
+
+
+
                                         if (!document.getElementById("foto").hidden) {
+                                            console.log("if 1")
                                         }
 
 
                                         if (document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = false;
-                                       
+                                            console.log("if 2")
+                                            
+                                            
+                    
+
+
+
+
+
+
+
+
+
+
                                         } else {
                                             document.getElementById("img").hidden = true;
+                                            console.log("if 3")
+                                            
+                                            
                                         }
                                     }, false);
 

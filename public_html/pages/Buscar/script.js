@@ -376,16 +376,9 @@ var url2 = "http://localhost:8080/api/ultimoRegistro/"
             .then(response => response.json())
             .then(data => {
            console.log(data)
-
-
-           
                 //console.log(data.id[0])
-
                 for(var i=0;i<data.length;i++){
-                   
                    // console.log(data[i].id)
-
-
                     fetch(url2+data[i].id)
                     .then(response => response.json())
                     .then(data => {
@@ -412,7 +405,7 @@ var url2 = "http://localhost:8080/api/ultimoRegistro/"
                         var e = "saida_"+data.fk_aluno 
                         if(document.getElementById(e)){                                            
                             
-                            console.log("removerndo: "+e)
+                            console.log("removendo: "+e)
                             var a = document.getElementById(e)
                             a.remove()
                         }else{
