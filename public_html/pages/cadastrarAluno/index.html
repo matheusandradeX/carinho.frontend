@@ -1,21 +1,25 @@
 
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Cadastrar</title>
     <meta charset="utf-8">
+
+
+
     <link href="../../bulma.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-    <script type="text/javascript" src="./webcam.min.js.baixados"></script>
-    <style>
-        .control{
-            width: 50%;
-        }
-    </style>
+
+
 </head>
 
 <body>
+
+
+    
     <div id=barra></div>
     <script src="../barra/script.js"></script>
     <div>
@@ -32,6 +36,7 @@
                             <input class="input" id="idadeCrianca" type="text" placeholder="ex: 11 "></input>
                             <label class="label">Data de Nascimento</label>
                             <input type="date" id="dataNascimento" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
+
                             <label class="label">Sexo</label>
                             <div class="select">
                                 <select id="sexoCrianca">
@@ -43,13 +48,7 @@
                             <label class="label">Carteira de Identidade</label>
                             <input class="input" id="carteiraIdentidade" type="text" placeholder="ex: xxxxxxxx"></input>
                             <br>
-                            
                             <br>
-                            <label class="label"> Turma </label>
-                            <div class="select">
-                                <select id="turma">
-                             </select>
-                             <br>
                             <label class="label">Foto de Identificação</label>
                             <button class="button" id="addImg" style="margin-bottom: 10px">Adicionar imagem</button>
                             <button class="button" id="addFoto" style="margin-bottom: 10px">Tirar foto</button>
@@ -58,30 +57,98 @@
                                 <label class="label">Escolher Imagem</label>
                                 <input type="file" class="form-control" id="imagemCrianca"><br>
                             </div>
+
                             <br>
                             <div id="foto" hidden>
                                 <label class="label">Tirar Foto</label>
+
+
                                 <br>
                                 <div>
                                     <div id="my_camera" style="width: 320px; height: 240px;">
                                         <div></div><video autoplay="autoplay" playsinline="playsinline" style="width: 320px; height: 240px;"></video></div>
+
                                     <div id="results"></div>
+
                                     <button class="button is-primary" onclick="take_snapshot()" class="btn btn-outline-primary">Tirar Foto</button>
-                                    <br/>
-                                    <br/>
-                                  
-                                </div>  
+
+
+                                </div>
+
+                                <!-- First, include the Webcam.js JavaScript Library -->
+                                <script type="text/javascript" src="./webcam.min.js.baixados"></script>
+
+                                <!-- Configure a few settings and attach camera -->
+                                <script >
+                                    Webcam.set({
+                                        width: 320,
+                                        height: 240,
+                                        image_format: 'jpeg',
+                                        jpeg_quality: 100
+                                    });
+                                    Webcam.attach('#my_camera');
+                                </script>
+
+                                <!-- A button for taking snaps -->
+                                <br>
+                                <br>
+
+                                <!-- Code to handle taking the snapshot and displaying it locally -->
+                                <script >
+                                    var testeImagem = "imagem vazia";
+
+
+
+
+                                    function take_snapshot() {
+
+                                        //console.log("1: "+data_uri);
+
+                                        // take snapshot and get image data
+                                        Webcam.snap(function(data_uri) {
+                                        
+                                      //  console.log("2: "+data_uri);
+                                       
+                                        testeImagem = data_uri;
+                                            // display results in page
+                                            document.getElementById('results').innerHTML =
+                                                '<h2>Aqui está sua foto</h2>' +
+                                                '<img id="pegarfoto" src="' + data_uri + '"/>';
+                                        });
+                                   //     return selecionarImagem(true)
+                                        return cadastrarCrianca(true)
+
+                                    }
+
+
+                                    //console.log(testeImagem);
+
+
+
+                                </script>
                             </div>
-                           
+                            <label class="label"> Turma </label>
+                            <div class="select">
+                                <select id="turma">
+                             </select>
                           <br>  
                             <br>
-                            <button class="button is-primary" hidden id="upload1" onclick="cadastrarCrianca()"  class="btn btn-outline-primary">Enviar</button>
+
+                            <button class="button is-primary" id="upload" onclick="cadastrarCrianca(false,true)"  class="btn btn-outline-primary">Enviar</button>
                         </div>
                     </div>
                     <script src="script.js">
+    
+
                     </script>
                     </section>
                             <script>
+                                function selecionarImagem(a){
+                                    console.log("valor da funcao teste é "+a);
+                                        if(a === true){
+                                        //    console.log(testeImagem)
+
+                                        }
 
 
 
@@ -89,30 +156,40 @@
 
 
 
+
+
+
+
+
+
+
+                                }
                                 document.getElementById("addImg")
                                     .addEventListener("click", function() {
 
-
-
-
-
-
                                         if (!document.getElementById("foto").hidden) {
-                                            console.log("if 1")
+                                            document.getElementById("foto").hidden = true;
+                                          //  return selecionarImagem(false)
+
+                                          console.log("case 1")
+                                            return cadastrarCrianca(false)
+                                 
                                         }
+
 
 
                                         if (document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = false;
-                                            console.log("if 2")
-                                            
-                                            
-                    
+                                         //  return selecionarImagem(false)
+                                         console.log("case 2")
+                                         foto = document.getElementById("imagemCrianca").value
+                                            if( document.getElementById("imagemCrianca").value !== ""){
+                                               
+                                               
+                                                return cadastrarCrianca(false)
 
-
-
-
-
+                                            }
+   
 
 
 
@@ -120,9 +197,8 @@
 
                                         } else {
                                             document.getElementById("img").hidden = true;
-                                            console.log("if 3")
-                                            
-                                            
+                                          
+
                                         }
                                     }, false);
 
@@ -131,23 +207,26 @@
 
                                         if (!document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = true;
-                                      
+                                           
                                         }
 
                                         if (document.getElementById("foto").hidden) {
                                             document.getElementById("foto").hidden = false;
-                                            Webcam.set({
-                                        width: 320,
-                                        height: 240,
-                                        image_format: 'jpeg',
-                                        jpeg_quality: 100
-                                    });
-                                    Webcam.attach('#my_camera');
+                                            
+                                      //      return selecionarImagem(true)
+                                            
+
+
                                         } else {
                                             document.getElementById("foto").hidden = true;
+                                          
 
                                         }
                                     }, false);
+
+                                
+                
+
                             </script>
 
 

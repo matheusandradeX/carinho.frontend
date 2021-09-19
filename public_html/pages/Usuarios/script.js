@@ -37,7 +37,7 @@ function cadastrar() {
     
 
             alert("Perfil Criado")
-            window.location.replace("../../index.html")
+            
         }) 
     }else{
         alert("As senhas não são iguais ou não foram preenchidas")

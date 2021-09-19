@@ -33,7 +33,7 @@ function barraAdministrador(){
                 <a class="navbar-item" href="../frequencia/index.html">
                         Controle
                       </a>
-                      <a class="navbar-item" href="../turmas/index.html">
+                      <a class="navbar-item" href="../turmas2/index.html">
                         Turmas
                       </a>
                      
@@ -48,7 +48,7 @@ function barraAdministrador(){
             <a class="navbar-item" href="../cadastrarResponsavel/index.html">
   Responsavel
 </a>
-                        <a class="navbar-item" href="../cadastrarTurma/index.html">
+                        <a class="navbar-item" href="../turmas/index.html">
               Turmas
             </a>
             <a class="navbar-item" href="../AlunoResponsavel/index.html">
@@ -92,10 +92,10 @@ function barraProfessor(){
                 <a class="navbar-item" href="../Buscar/index.html">
           Buscar
         </a>
-                <a class="navbar-item" href="../controle/index.html">
+                <a class="navbar-item" href="../frequencia/index.html">
                         Controle
                       </a>
-                      <a class="navbar-item" href="../turmas/index.html">
+                      <a class="navbar-item" href="../turmas2/index.html">
                         Turmas
                       </a>
                      
@@ -119,7 +119,7 @@ function barraProfessor(){
                     </div>
 
                
-                <a class="navbar-item" href="../Login/index.html">
+                <a class="navbar-item" href="../../index.html">
                     Sair
                   </a>
             </div>
