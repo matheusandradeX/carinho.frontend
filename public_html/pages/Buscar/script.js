@@ -65,22 +65,27 @@ var status = ultimoStatustipoHorario
 console.log(ultimoStatustipoHorario)
 if(ultimoStatustipoHorario == "ENTRADA"){
     console.log("entrou aqui 1 ")
-    status ="ENTRADA"
+    status ="SAIDA"
     toast("Saida Realizada " ,myDate);
     atulizarStatus(ultimoStatustipoHorario,alunoId)
+
 }
 if(ultimoStatustipoHorario == "SAIDA"){
     console.log("entrou aqui 2 ")
-    status ="SAIDA"
-    toast("Entrada Realizada " ,myDate);
-}
-if(ultimoStatustipoHorario == undefined){
-    console.log("entrou aqui 3 ")
-    toast("Entrada Realizada " ,myDate);
     status ="ENTRADA"
+    toast("Entrada Realizada " ,myDate);
+    atulizarStatus(ultimoStatustipoHorario,alunoId)
 }
-console.log("valor status e ")
-console.log(status)
+else {
+    console.log("entrou aqui 3 ")
+    status ="ENTRADA"
+    toast("Entrada Realizada " ,myDate);
+    atulizarStatus(ultimoStatustipoHorario,alunoId)
+}
+console.log("--------------")
+console.log("STATUS "+status)
+console.log("ALUNO "+alunoId)
+console.log("ESCOLA "+escolaId)
 const formData = new FormData();
 formData.append('tipoHorario', status);
 formData.append('idAluno', alunoId);
@@ -332,12 +337,7 @@ function toast(nome,horario) {
                     </div>
                  </div>
               <footer class="card-footer" id="footer"style="font-size: 30px">
-              
-            
-        
-              <a href="#" class="card-footer-item" onclick="persistirFrequencia(${valorBotaoEntradaSaida})"   >Entrada</a>
-        
-        
+              <a href="#" class="card-footer-item" onclick="persistirFrequencia(${data.aluno.id},'ENTRADA')"   >Entrada</a>
               <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
               Responsável 
             </a>
@@ -358,12 +358,15 @@ function toast(nome,horario) {
 
 function atulizarStatus(status,element){
 
-    if(status === "Saida"){
+    if(status == "SAIDA"){
         document.getElementById(element).innerHTML = "Entrada";  
+        alert("chegou aqui 1")
     }
     
-    if(status === "Entrada"){
+    if(status == "ENTRADA"){
         document.getElementById(element).innerHTML = "Saida";
+        alert("chegou aqui 2")
+
     }
 }
 
