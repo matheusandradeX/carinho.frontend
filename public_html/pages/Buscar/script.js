@@ -7,6 +7,7 @@ var perfil = sessionStorage.getItem('perfil');
 headers.append('Content-Type', 'text/json');
 var escolaId = parseInt( sessionStorage.getItem('escola'))
 var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
+var valorBotaoEntradaSaida 
 
 
 urlAlunomaisControle = "http://localhost:8080/api/alunos/escola/"+ escolaId
@@ -62,30 +63,40 @@ function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
 var status = ultimoStatustipoHorario
 
 
-console.log(ultimoStatustipoHorario)
 if(ultimoStatustipoHorario == "ENTRADA"){
     console.log("entrou aqui 1 ")
     status ="SAIDA"
+
     toast("Saida Realizada " ,myDate);
-    atulizarStatus(ultimoStatustipoHorario,alunoId)
 
 }
-if(ultimoStatustipoHorario == "SAIDA"){
+else if(ultimoStatustipoHorario == "SAIDA"){
     console.log("entrou aqui 2 ")
     status ="ENTRADA"
+
     toast("Entrada Realizada " ,myDate);
-    atulizarStatus(ultimoStatustipoHorario,alunoId)
 }
 else {
     console.log("entrou aqui 3 ")
     status ="ENTRADA"
     toast("Entrada Realizada " ,myDate);
-    atulizarStatus(ultimoStatustipoHorario,alunoId)
+
 }
-console.log("--------------")
-console.log("STATUS "+status)
-console.log("ALUNO "+alunoId)
-console.log("ESCOLA "+escolaId)
+
+console.log("TESTES")
+var textoStatus = document.getElementById("frequencia_"+alunoId).innerHTML 
+console.log(textoStatus)
+
+if( document.getElementById("frequencia_"+alunoId).innerHTML == "Saida"){
+    document.getElementById("frequencia_"+alunoId).innerHTML = "Entrada"
+    document.getElementById(id="status_"+alunoId).innerHTML.replace("Entrada","Saida")  
+    document.getElementById(id="status_"+alunoId).innerHTML = "SAIDA" 
+}
+else if ( document.getElementById("frequencia_"+alunoId).innerHTML == "Entrada"){
+    document.getElementById("frequencia_"+alunoId).innerHTML = "Saida"
+ document.getElementById(id="status_"+alunoId).innerHTML = "ENTRADA" 
+
+}
 const formData = new FormData();
 formData.append('tipoHorario', status);
 formData.append('idAluno', alunoId);
@@ -94,18 +105,15 @@ const url = "http://localhost:8080/api/controle"
 const request = new Request(url, {
     method: 'POST',
     body: formData
+    
 });
-
 fetch(request)
     .then(response => response.text())
     .then(console.log)
 
 
-    
 
 } 
-
-
 
 function resp(aluno) {
     var id = aluno
@@ -139,6 +147,7 @@ function toast(nome,horario) {
   }
  
     function professor(aluno){
+
         return `
         <style>
         * {
@@ -148,12 +157,13 @@ function toast(nome,horario) {
         </style>
        
        <div class="columns is-mobile is-centered ">
-       <div class="box" style="width: 600px; margin-top:20px; ">
+       <div class="box" style="width: 600px; margin-top:20px;  ">
        <div style="display: flex; justify-content: flex-end">
        <div id="remove" class="remove" name="remove" >  
        </div>
     </div>
-         <div class="elementos" style="justify-content: center;">
+         <div class="elementos" style=" display: flex;
+         justify-content: space-between;">
             <div class="elemento" style="width:auto; font-size:20px;"> 
             <div>
                <strong>Nome:</strong> ${aluno.nome} 
@@ -199,13 +209,15 @@ function toast(nome,horario) {
         
         }).catch(err => console.log(err))
             if (data.controleAluno !== null && data.controleAluno!== undefined){
-            var valorBotaoEntradaSaida = "Entrada";
+                 valorBotaoEntradaSaida = "Entrada";
             if(data.controleAluno.tipoHorario === "SAIDA"){
                 valorBotaoEntradaSaida = "Entrada";
             }
             if(data.controleAluno.tipoHorario === "ENTRADA"){
                 valorBotaoEntradaSaida = "Saida";
+
             }
+            
             return `
             <style>
             * {
@@ -243,22 +255,26 @@ function toast(nome,horario) {
                </div>
            </div>
         </div>
-             <div class="elementos" style="justify-content: center;">
+             <div class="elementos" style="display: flex;
+             justify-content: space-between;">
                 <div class="elemento" style="width:auto; font-size:20px;"> 
                 <div>
                    <strong>Nome:</strong> ${data.aluno.nome}  ${data.aluno.id} 
                 </div>
                 
-                   <div>
+                   <div >
                    <strong>Idade:</strong> ${data.aluno.idade}
                    </div>
                    <div>
                    <strong>Sexo:</strong> ${data.aluno.genero}
                    </div>
-                   <div>
+                   <div >
                    <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
                    <br>
-                   <strong>Status:</strong> ${data.controleAluno.tipoHorario  }
+                   <div style="display: flex;
+                   flex-direction: row;">
+                    <strong ">Status:</strong><p id="status_${data.aluno.id}">${data.controleAluno.tipoHorario  }</p>
+                   </div>
                    </div>
                 </div>
                 <div class="elemento2">
@@ -266,7 +282,7 @@ function toast(nome,horario) {
                 </div>
              </div>
           <footer class="card-footer" id="footer"style="font-size: 30px">
-          <a href="#" class="card-footer-item" onclick="persistirFrequencia(${data.aluno.id},'${data.controleAluno.tipoHorario}')"  > ${valorBotaoEntradaSaida}</a>
+          <button class="card-footer-item button"  id="frequencia_${data.aluno.id}"    onclick="persistirFrequencia(${data.aluno.id},'${data.controleAluno.tipoHorario}')" >${valorBotaoEntradaSaida}</button>
           <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
           Responsável 
         </a>
@@ -329,7 +345,9 @@ function toast(nome,horario) {
                        <div>
                        <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
                        <br>
-                       <strong>Status:</strong> Novo aluno
+                       <div>
+                       <strong id="status_${data.aluno.id}"  >Status:</strong>Novo aluno
+                       </div>
                        </div>
                     </div>
                     <div class="elemento2">
@@ -337,7 +355,7 @@ function toast(nome,horario) {
                     </div>
                  </div>
               <footer class="card-footer" id="footer"style="font-size: 30px">
-              <a href="#" class="card-footer-item" onclick="persistirFrequencia(${data.aluno.id},'ENTRADA')"   >Entrada</a>
+              <a href="#" id="frequencia_${data.aluno.id}"  class="card-footer-item" onclick="persistirFrequencia(${data.aluno.id},'ENTRADA')">Entrada</a>
               <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
               Responsável 
             </a>
@@ -356,17 +374,4 @@ function toast(nome,horario) {
 
 
 
-function atulizarStatus(status,element){
-
-    if(status == "SAIDA"){
-        document.getElementById(element).innerHTML = "Entrada";  
-        alert("chegou aqui 1")
-    }
-    
-    if(status == "ENTRADA"){
-        document.getElementById(element).innerHTML = "Saida";
-        alert("chegou aqui 2")
-
-    }
-}
 

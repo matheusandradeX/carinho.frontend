@@ -1,4 +1,4 @@
-var url = "http://localhost:8080/api/turma/14"
+var url = "http://localhost:8080/api/turma/1"
 
 
 
