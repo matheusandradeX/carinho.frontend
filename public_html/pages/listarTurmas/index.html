@@ -13,42 +13,52 @@
             <script src="../barra/script.js"></script>
             <BR>
                 <div style="text-align: center;">
-                    <h1 class="title is-3" >Relatório de Frequência</h1>
+                    <h1 class="title is-3" >Relatório de Turma</h1>
                 </div>
                 <br>
                 <div style="width: 60%; margin:0 auto">
 
                 <div style="display: flex;">
+
+
                 <input   style="margin-right: 4px;  height: 45px;  " type="text"   id="myInput" onkeyup="myFunction()" placeholder="Procurar por nome" title="Type in a name"/>
-                <button  style="height: 45px; margin-right: 4px;" class="button is-primary" onclick="buscar()"  style="height: 45px; font-size: 20px;"><i class="material-icons">search</i>Buscar</button>
+                
+                <button  style="height: 45px; margin-right: 4px;" class="button is-primary " onclick="buscar()"  style="height: 45px; font-size: 20px;"><i class="material-icons">search</i>Buscar</button>
                   <div class="select" style="height: 45px;">
                   <select id="dados"    style=" height: 45px;">
                   </select>
                 </div>
+
                 </div>
+            
+                
+
+
                 <table id="myTable">
                   <tr class="header">
                     <th style="max-width:25%;">Nome</th>
-                    <th style="max-width:25%;">Data</th>
-                    <th style="max-width:25%;">Horario</th>
-                    <th style="max-width:25%;">Status</th>
+                    <th style="max-width:25%;">Carteira Identidade</th>
+                    <th style="max-width:25%;">Genero</th>
+                    <th style="max-width:25%;">Turma</th>
         
                   </tr>
                   <tbody id="tabela">
+              
                   </tbody>
                 </table>
                 <br>
-                <button  class="button is-primary href="#" onclick="download_table_as_csv('Relátorio_Frequência');"><i class="material-icons">description</i>Exportar CSV</button>
+                <button  class="button is-primary href="#" onclick="download_table_as_csv('Relatório_Turma');"><i class="material-icons">description</i>Exportar CSV</button>
+
     </div>
     <div id="nome"></div>
 
     
-
+    
 
     
         
         <script>
-                   function myFunction() {
+        function myFunction() {
           var input, filter, table, tr, td, i, txtValue;
           input = document.getElementById("myInput");
           filter = input.value.toUpperCase();
@@ -66,8 +76,7 @@
             }       
           }
         }
- // Quick and simple export target #table_id into a csv
-function download_table_as_csv(table_id, separator = ',') {
+        function download_table_as_csv(table_id, separator = ',') {
     // Select rows from table_id
     var rows = document.querySelectorAll('table#' + table_id + ' tr');
     // Construct csv
@@ -96,6 +105,8 @@ function download_table_as_csv(table_id, separator = ',') {
     link.click();
     document.body.removeChild(link);
 }
+
+
         </script>
         
                  

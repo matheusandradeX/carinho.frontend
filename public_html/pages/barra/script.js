@@ -33,7 +33,7 @@ function barraAdministrador(){
                 <a class="navbar-item" href="../frequencia/index.html">
                         Controle
                       </a>
-                      <a class="navbar-item" href="../turmas2/index.html">
+                      <a class="navbar-item" href="../listarTurmas/index.html">
                         Turmas
                       </a>
                      

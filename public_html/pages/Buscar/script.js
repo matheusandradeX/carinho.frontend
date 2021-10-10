@@ -10,7 +10,7 @@ var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 var valorBotaoEntradaSaida 
 
 
-urlAlunomaisControle = "http://localhost:8080/api/alunos/escola/"+ escolaId
+//urlAlunomaisControle = "http://localhost:8080/api/alunos/escola/"+ escolaId
 
 function verificarLista() {
     var nome = document.getElementById("campoBusca").value
@@ -33,7 +33,7 @@ function remove(idAluno) {
 
 function getAluno() {
     verificarLista();
-    fetch(urlAlunomaisControle)
+    fetch(url)
         .then(response => response.json())
         .then(data => {  
     listaAlunos = data
