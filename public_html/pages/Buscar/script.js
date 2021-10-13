@@ -10,7 +10,7 @@ var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 var valorBotaoEntradaSaida 
 
 
-//urlAlunomaisControle = "http://localhost:8080/api/alunos/escola/"+ escolaId
+
 
 function verificarLista() {
     var nome = document.getElementById("campoBusca").value
@@ -83,9 +83,8 @@ else {
 
 }
 
-console.log("TESTES")
 var textoStatus = document.getElementById("frequencia_"+alunoId).innerHTML 
-console.log(textoStatus)
+
 
 if( document.getElementById("frequencia_"+alunoId).innerHTML == "Saida"){
     document.getElementById("frequencia_"+alunoId).innerHTML = "Entrada"
@@ -110,9 +109,6 @@ const request = new Request(url, {
 fetch(request)
     .then(response => response.text())
     .then(console.log)
-
-
-
 } 
 
 function resp(aluno) {
@@ -121,12 +117,10 @@ function resp(aluno) {
     sessionStorage.setItem('idAluno', id);
 }
 
-function atualizarAluno(aluno,turma) {
-    var id = aluno
-    var id_turma = turma
-    console.log(aluno)
-    sessionStorage.setItem('idAluno', id);  
-    sessionStorage.setItem('id_turma',id_turma);
+function atualizarAluno(alunoId) {
+    
+
+    sessionStorage.setItem('idAluno', alunoId);  
 }
 
 function responsavel(id) {
@@ -147,66 +141,18 @@ function toast(nome,horario) {
   }
  
     function professor(aluno){
-
         return `
-        <style>
-        * {
-        margin:0px;
-        padding:0px;
-        }
-        </style>
-       
-       <div class="columns is-mobile is-centered ">
-       <div class="box" style="width: 600px; margin-top:20px;  ">
-       <div style="display: flex; justify-content: flex-end">
-       <div id="remove" class="remove" name="remove" >  
-       </div>
-    </div>
-         <div class="elementos" style=" display: flex;
-         justify-content: space-between;">
-            <div class="elemento" style="width:auto; font-size:20px;"> 
-            <div>
-               <strong>Nome:</strong> ${aluno.nome} 
-               </div>
-               <div>
-               <strong>Idade:</strong> ${aluno.idade}
-               </div>
-               <div>
-               <strong>Sexo:</strong> ${aluno.genero}
-               </div>
-               <div>
-               <strong>Documento:</strong> ${aluno.carteiraIdentidade}
-               </div>
-            </div>
-            <div class="elemento2">
-               <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${aluno.foto}" />
-            </div>
-         </div>
-      <footer class="card-footer" id="footer"style="font-size: 30px">
-    
-      <a href="#" name="btn_entrada" id ="entrada_${aluno.id}" id="entrada" class="card-footer-item"  onclick="entrada(${aluno.id})">Entrada</a>
-      <a href="#" id="saida" name="btn_saida" id ="saida_${aluno.id}"   class="card-footer-item"         onclick="saida(${aluno.id})">Saida</a>
-      <a href="../responsavel/index.html" class="card-footer-item" " onclick="resp(${aluno.id}${aluno.turma.id})"   > <i class="material-icons">people</i>
-      Responsável 
-    </a>
-      </footer>
-      </div>  
-      <div id="snackbar">Some text some message..</div>
-      </div> 
-  
       `
     }
   
 
     function administrador(data) {
         const idAluno = data.aluno.id;
-
-        const urlRegistro = "http://localhost:8080/api/testeAluno/"+idAluno+"/escola/"+escolaId;
+        const urlRegistro = "http://localhost:8080/api/aluno/"+idAluno+"/escola/"+escolaId;
             fetch(urlRegistro)
             .then(response => response.json())
             .then(data => {       
-        
-        
+
         }).catch(err => console.log(err))
             if (data.controleAluno !== null && data.controleAluno!== undefined){
                  valorBotaoEntradaSaida = "Entrada";

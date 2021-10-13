@@ -1,4 +1,10 @@
-var url = "http://localhost:8080/api/alunos"
+var idEscola =  sessionStorage.getItem('escola');
+
+
+
+
+
+var url = "http://localhost:8080/api/alunos/escola/"+idEscola
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -8,7 +14,7 @@ var url = "http://localhost:8080/api/alunos"
 
     function alunoTemplate(aluno) {
         return `  
-        <option value="${aluno.id}"> ${aluno.nome}</option><br/>
+        <option value="${aluno.aluno.id}"> ${aluno.aluno.nome}</option><br/>
    `
 }
 

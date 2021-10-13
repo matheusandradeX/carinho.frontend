@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -31,7 +28,7 @@
                     <div>
                         <div class="form-group">
                             <label class="label">Nome</label>
-                            <input class="input" id="nomeCrianca" type="text" placeholder="ex: Matheus " required></input>
+                            <input class="input" id="nomeCrianca" type="text" placeholder="ex: Matheus " required=""></input>
                             <label class="label">Idade</label>
                             <input class="input" id="idadeCrianca" type="text" placeholder="ex: 11 "></input>
                             <label class="label">Data de Nascimento</label>
@@ -131,11 +128,13 @@
                             <div class="select">
                                 <select id="turma">
                              </select>
-                          <br>  
-                            <br>
-
-                            <button class="button is-primary" id="upload" onclick="cadastrarCrianca(false,true)"  class="btn btn-outline-primary">Enviar</button>
                         </div>
+                        <br>
+                        <p id="alerta" class="help is-danger"></p>
+  
+                        <br>
+                        <button class="button is-primary" id="upload" onclick="cadastrarCrianca(false,true)"  class="btn btn-outline-primary">Enviar</button>
+
                     </div>
                     <script src="script.js">
     

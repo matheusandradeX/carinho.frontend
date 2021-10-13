@@ -1,5 +1,5 @@
 var escolaId = parseInt( sessionStorage.getItem('escola'))
-const getTurmas = "http://localhost:8080/api/turmas"
+const getTurmas = "http://localhost:8080/api/turmas/escola/"+escolaId
 
 
 fetch(getTurmas)

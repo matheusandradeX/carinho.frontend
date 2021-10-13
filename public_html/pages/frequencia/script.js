@@ -1,8 +1,9 @@
 const urlRemove = "http://localhost:8080/api/aluno/"
-const url = "http://localhost:8080/api/turmas"
 var teste;
 var escolaId = parseInt( sessionStorage.getItem('escola'))
 
+
+const url = "http://localhost:8080/api/turmas/escola/"+idEscola
 
 fetch(url)
     .then(response => response.json())

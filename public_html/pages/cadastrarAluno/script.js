@@ -1,4 +1,7 @@
-var url = "http://localhost:8080/api/turmas"
+var idEscola =  sessionStorage.getItem('escola');
+
+
+var url = "http://localhost:8080/api/turmas/escola/"+idEscola
     fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -16,23 +19,67 @@ var foto;
 function verifica(){
 
 var verifica = document.getElementById("imagemCrianca").value
-console.log("valor de veridica:")
-console.log(verifica)
-
 
 if(verifica !== ""){
-    console.log("chegei aqui")
+    
          foto = document.getElementById('imagemCrianca').files[0];
 
 }
 
 }
 
-idEscola =  sessionStorage.getItem('escola');
 
-console.log(idEscola)
+
+
+        
+
+
+
+
 
 function cadastrarCrianca(fotoWebCam, uploadFoto ) {
+    var validação = true
+
+    if(  document.getElementById('nomeCrianca').value == "" ){
+    
+      document.getElementById('nomeCrianca').setAttribute("class","input is-danger")
+      validação = false
+    }
+    else{
+        document.getElementById('nomeCrianca').setAttribute("class","input")
+      }
+      if(  document.getElementById('idadeCrianca').value == "" ){
+    
+        document.getElementById('idadeCrianca').setAttribute("class","input is-danger")
+        validação = false
+      }
+      else{
+          document.getElementById('idadeCrianca').setAttribute("class","input")
+        }
+        if(  document.getElementById('carteiraIdentidade').value == "" ){
+    
+            document.getElementById('carteiraIdentidade').setAttribute("class","input is-danger")
+            validação = false
+          }
+          else{
+              document.getElementById('carteiraIdentidade').setAttribute("class","input")
+            }
+            if(validação == true){
+                document.getElementById("alerta").innerHTML = ""
+            
+        }else{
+            document.getElementById("alerta").innerHTML = "* Preencher campos em vermelho"
+          }
+
+
+
+
+
+
+
+
+
+
 
     console.log("fotoWebCam "+fotoWebCam);
     console.log("uploadFoto "+uploadFoto);
