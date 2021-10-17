@@ -1,23 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Cadastrar</title>
     <meta charset="utf-8">
-
-
-
     <link href="../../bulma.min.css" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
-
-
 </head>
-
 <body>
-
-
-    
-    <div id=barra></div>
+ <div id=barra></div>
     <script src="../barra/script.js"></script>
     <div>
         <br>
@@ -54,27 +44,18 @@
                                 <label class="label">Escolher Imagem</label>
                                 <input type="file" class="form-control" id="imagemCrianca"><br>
                             </div>
-
                             <br>
                             <div id="foto" hidden>
                                 <label class="label">Tirar Foto</label>
-
-
                                 <br>
                                 <div>
                                     <div id="my_camera" style="width: 320px; height: 240px;">
                                         <div></div><video autoplay="autoplay" playsinline="playsinline" style="width: 320px; height: 240px;"></video></div>
-
                                     <div id="results"></div>
-
                                     <button class="button is-primary" onclick="take_snapshot()" class="btn btn-outline-primary">Tirar Foto</button>
-
-
                                 </div>
-
                                 <!-- First, include the Webcam.js JavaScript Library -->
                                 <script type="text/javascript" src="./webcam.min.js.baixados"></script>
-
                                 <!-- Configure a few settings and attach camera -->
                                 <script >
                                     Webcam.set({
@@ -85,18 +66,12 @@
                                     });
                                     Webcam.attach('#my_camera');
                                 </script>
-
                                 <!-- A button for taking snaps -->
                                 <br>
                                 <br>
-
                                 <!-- Code to handle taking the snapshot and displaying it locally -->
                                 <script >
                                     var testeImagem = "imagem vazia";
-
-
-
-
                                     function take_snapshot() {
 
                                         //console.log("1: "+data_uri);
@@ -116,12 +91,6 @@
                                         return cadastrarCrianca(true)
 
                                     }
-
-
-                                    //console.log(testeImagem);
-
-
-
                                 </script>
                             </div>
                             <label class="label"> Turma </label>
@@ -131,104 +100,44 @@
                         </div>
                         <br>
                         <p id="alerta" class="help is-danger"></p>
-  
                         <br>
                         <button class="button is-primary" id="upload" onclick="cadastrarCrianca(false,true)"  class="btn btn-outline-primary">Enviar</button>
-
                     </div>
                     <script src="script.js">
-    
 
                     </script>
                     </section>
                             <script>
-                                function selecionarImagem(a){
-                                    console.log("valor da funcao teste é "+a);
-                                        if(a === true){
-                                        //    console.log(testeImagem)
-
-                                        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                }
                                 document.getElementById("addImg")
                                     .addEventListener("click", function() {
-
                                         if (!document.getElementById("foto").hidden) {
                                             document.getElementById("foto").hidden = true;
-                                          //  return selecionarImagem(false)
-
                                           console.log("case 1")
                                             return cadastrarCrianca(false)
-                                 
                                         }
-
-
-
                                         if (document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = false;
-                                         //  return selecionarImagem(false)
                                          console.log("case 2")
                                          foto = document.getElementById("imagemCrianca").value
-                                            if( document.getElementById("imagemCrianca").value !== ""){
-                                               
-                                               
+                                            if( document.getElementById("imagemCrianca").value !== ""){    
                                                 return cadastrarCrianca(false)
-
                                             }
-   
-
-
-
-
-
                                         } else {
                                             document.getElementById("img").hidden = true;
-                                          
-
                                         }
                                     }, false);
 
                                 document.getElementById("addFoto")
                                     .addEventListener("click", function() {
-
                                         if (!document.getElementById("img").hidden) {
-                                            document.getElementById("img").hidden = true;
-                                           
+                                            document.getElementById("img").hidden = true; 
                                         }
-
                                         if (document.getElementById("foto").hidden) {
                                             document.getElementById("foto").hidden = false;
-                                            
-                                      //      return selecionarImagem(true)
-                                            
-
-
                                         } else {
                                             document.getElementById("foto").hidden = true;
-                                          
-
                                         }
                                     }, false);
-
-                                
-                
-
                             </script>
-
-
-</body>
-
-</html>
+                        </body>
+                    </html>
