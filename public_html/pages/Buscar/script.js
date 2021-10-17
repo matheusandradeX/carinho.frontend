@@ -1,5 +1,6 @@
 var url = "http://localhost:8080/api/aluno"
-const urlRemove = "http://localhost:8080/api/aluno/"
+var urlRemove = "http://localhost:8080/api/aluno/"
+
 var listaAlunos
 var nome = document.getElementById("campoBusca").value
 let headers = new Headers();
@@ -23,7 +24,7 @@ function verificarLista() {
 }
 
 function remove(idAluno) {
-    fetch(urlRemove + idAluno, { method: 'DELETE' }).then(() => {
+    fetch(urlRemove + idAluno+"/escola/"+escolaId, { method: 'DELETE' }).then(() => {
         location.reload();
     }).catch(err => {
         console.error(err)
