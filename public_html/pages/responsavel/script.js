@@ -1,5 +1,8 @@
 var id = sessionStorage.getItem('idAluno')
 var url = "http://localhost:8080/api/responsavel/" + id
+var urlRemove = "http://localhost:8080/api/responsavel/"
+var escolaId = parseInt( sessionStorage.getItem('escola'))
+
 console.log(url)
 fetch(url)
     .then(response => response.json())
@@ -48,8 +51,9 @@ function responsavelTemplate(responsavel) {
 }
 
 
-function removeResonsavel(di) {
-   fetch(urlRemove + idAluno, { method: 'DELETE' }).then(() => {
+
+function remove(idResponsavel) {
+   fetch(urlRemove + idResponsavel+"/idEscola/"+escolaId, { method: 'DELETE' }).then(() => {
        location.reload();
    }).catch(err => {
        console.error(err)
