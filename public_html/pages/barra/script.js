@@ -27,7 +27,7 @@ function barraAdministrador(){
         </div>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="../Buscar/index.html">
+                <a class="navbar-item" href="../buscar/index.html">
           Buscar
         </a>
                 <a class="navbar-item" href="../frequencia/index.html">
@@ -51,13 +51,13 @@ function barraAdministrador(){
                         <a class="navbar-item" href="../turmas/index.html">
               Turmas
             </a>
-            <a class="navbar-item" href="../AlunoResponsavel/index.html">
+            <a class="navbar-item" href="../alunoResponsavel/index.html">
             Vincular Dados
           </a>
                     </div>
 
                 </div>
-                <a class="navbar-item" href="../Usuarios/index.html">
+                <a class="navbar-item" href="../usuarios/index.html">
                 Usuários
               </a>
                 <a class="navbar-item" href="../../index.html">
@@ -66,7 +66,7 @@ function barraAdministrador(){
             </div>
         </div>
         <div class="navbar-dropdown is-boxed">
-                        <a class="navbar-item" href="../AlunoResponsavel/index.html">
+                        <a class="navbar-item" href="../alunoResponsavel/index.html">
               Vincular
             </a>
     </nav> 
