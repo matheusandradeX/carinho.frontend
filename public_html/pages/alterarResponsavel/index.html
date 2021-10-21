@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Cadastrar</title>
     <meta charset="utf-8">
     <link href="../../bulma.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <div id=barra></div>
+ <div id=barra></div>
     <script src="../barra/script.js"></script>
     <div>
         <br>
@@ -18,7 +16,7 @@
                     <div>
                         <div class="form-group">
                            
-                            <h1 class="title is-3">Cadastrar Responsavel</h1>
+                            <h1 class="title is-3">Alterar Responsavel</h1>
 
                             <label class="label">Nome do responsável </label>
                             <input class="input" id="nome_responsavel" type="text" style="margin-bottom: 10px"></input>
@@ -63,9 +61,7 @@
                         <br>
                         <p id="alerta" class="help is-danger"></p>
                         <br>
-                        <a  class="button is-link"  href="../cadastrarAluno/index.html">Voltar</a>
-                        <button class="button is-primary" id=upload onclick="cadastrarResponsavel(false,true)">Enviar</button>
-                        
+                        <button class="button is-primary" id="upload" onclick="alterarResponsavel(false,true)"  class="btn btn-outline-primary">Enviar</button>
                     </div>
                     <script src="script.js"></script>
                     </section>
@@ -90,7 +86,7 @@
                                                 '<h2>Aqui está sua foto</h2>' +
                                                 '<img id="pegarfoto" src="' + data_uri + '"/>';
                                         });
-                                        return cadastrarResponsavel(true)
+                                        return alterarResponsavel(true)
                                     }          
 
                                 document.getElementById("addImg")
@@ -98,14 +94,14 @@
                                         if (!document.getElementById("foto").hidden) {
                                             document.getElementById("foto").hidden = true;
                                           console.log("case 1")
-                                            return cadastrarResponsavel(false)
+                                            return alterarResponsavel(false)
                                         }
                                         if (document.getElementById("img").hidden) {
                                             document.getElementById("img").hidden = false;
                                          console.log("case 2")
                                          foto = document.getElementById("imagemResponsavel").value
                                             if( document.getElementById("imagemResponsavel").value !== ""){    
-                                                return cadastrarResponsavel(false)
+                                                return alterarResponsavel(false)
                                             }
                                         } else {
                                             document.getElementById("img").hidden = true;
@@ -122,8 +118,7 @@
                                             document.getElementById("foto").hidden = true;
                                         }
                                     }, false);
-                            </script>  
-                  <script src="script.js"></script>
-</body>
+                            </script>
 
-</html>
+                        </body>
+                    </html>

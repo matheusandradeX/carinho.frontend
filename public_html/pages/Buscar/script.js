@@ -20,16 +20,26 @@ function verificarLista() {
 
     } else {
         url = "http://localhost:8080/api/alunos" + "/" + nome +"/escola/"+escolaId
+        console.log(url)
     }
 }
 
 function remove(idAluno) {
-    fetch(urlRemove + idAluno+"/escola/"+escolaId, { method: 'DELETE' }).then(() => {
-        location.reload();
-    }).catch(err => {
-        console.error(err)
-        alert(erro)
-    });
+
+    if(confirm("Relamente deseja deletar o aluno?")){
+
+        fetch(urlRemove + idAluno+"/escola/"+escolaId, { method: 'DELETE' }).then(() => {
+            location.reload();
+        }).catch(err => {
+            console.error(err)
+            alert(erro)
+        });
+    }
+    else{
+        alert("Ação cancelada")
+    }
+
+
 }
 
 function getAluno() {
@@ -84,7 +94,7 @@ else {
 
 }
 
-var textoStatus = document.getElementById("frequencia_"+alunoId).innerHTML 
+
 
 
 if( document.getElementById("frequencia_"+alunoId).innerHTML == "Saida"){
@@ -156,12 +166,12 @@ function toast(nome,horario) {
 
         }).catch(err => console.log(err))
             if (data.controleAluno !== null && data.controleAluno!== undefined){
-                 valorBotaoEntradaSaida = "Entrada";
-            if(data.controleAluno.tipoHorario === "SAIDA"){
-                valorBotaoEntradaSaida = "Entrada";
+                 valorBotaoEntradaSaida = " Entrada";
+            if(data.controleAluno.tipoHorario === " SAIDA"){
+                valorBotaoEntradaSaida = " Entrada";
             }
-            if(data.controleAluno.tipoHorario === "ENTRADA"){
-                valorBotaoEntradaSaida = "Saida";
+            if(data.controleAluno.tipoHorario === " ENTRADA"){
+                valorBotaoEntradaSaida = " Saida";
 
             }
             
@@ -206,7 +216,7 @@ function toast(nome,horario) {
              justify-content: space-between;">
                 <div class="elemento" style="width:auto; font-size:20px;"> 
                 <div>
-                   <strong>Nome:</strong> ${data.aluno.nome}  ${data.aluno.id} 
+                   <strong>Nome:</strong> ${data.aluno.nome}  
                 </div>
                 
                    <div >
@@ -220,7 +230,7 @@ function toast(nome,horario) {
                    <br>
                    <div style="display: flex;
                    flex-direction: row;">
-                    <strong ">Status:</strong><p id="status_${data.aluno.id}">${data.controleAluno.tipoHorario  }</p>
+                    <strong ">Status: </strong><p id=" status_${data.aluno.id}"> ${data.controleAluno.tipoHorario  }</p>
                    </div>
                    </div>
                 </div>
@@ -293,7 +303,7 @@ function toast(nome,horario) {
                        <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
                        <br>
                        <div>
-                       <strong id="status_${data.aluno.id}"  >Status:</strong>Novo aluno
+                       <strong id="status_${data.aluno.id}"  >Status: </strong>Novo aluno
                        </div>
                        </div>
                     </div>

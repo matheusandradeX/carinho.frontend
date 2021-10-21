@@ -41,22 +41,36 @@ function responsavelTemplate(responsavel) {
          </div>
       <footer class="card-footer">
     
-      <a href="#" class="card-footer-item" onclick="atualizarresponsavel(${responsavel.id})">Editar</a>
+      <a href="../alterarResponsavel/index.html" class="card-footer-item" onclick="atulizarResponsavel(${responsavel.id})">Editar</a>
       <a href="#" class="card-footer-item" onclick="remove(${responsavel.id})">Deletar</a>
       </footer>
       </div>
   </div>
 
    `
+
+  
+   
+
+
+
+
+}
+function atulizarResponsavel(idResponsavel){
+   sessionStorage.setItem('idResponsavel', idResponsavel);
+   alert("entrei aqui")
+
 }
 
 
 
 function remove(idResponsavel) {
+
+   if(confirm("Realmente deseja deletar o responsavel?")){
    fetch(urlRemove + idResponsavel+"/idEscola/"+escolaId, { method: 'DELETE' }).then(() => {
        location.reload();
    }).catch(err => {
        console.error(err)
        alert(erro)
-   });
+   });}
 }

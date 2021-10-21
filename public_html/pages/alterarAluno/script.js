@@ -29,17 +29,6 @@ var url = "http://localhost:8080/api/aluno/"+idAluno+"/escola/"+idEscola;
 
         }).catch(err => console.log(err))
 
-    
-
-
-        
-
-
-
-
-
-
-
 
  function putAluno() {
 

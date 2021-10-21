@@ -1,3 +1,4 @@
+
 url = 'http://localhost:8080/api/responsavel'
 
 var foto;
@@ -12,7 +13,7 @@ foto = document.getElementById('imagemResponsavel').files[0];
 }
 
 
- function cadastrarResponsavel(fotoWebCam, uploadFoto) {
+ function alterarResponsavel(fotoWebCam, uploadFoto) {
   var validação = true
 
   if(  document.getElementById('nome_responsavel').value == "" ){
@@ -87,16 +88,8 @@ console.log(responsavelId)
 
 
  fetch(url, {
-    method: "POST",
+    method: "PUT",
     body: form
- });
- 
- 
-
- alert("Dados Cadastrados!")
-    window.location.replace("../AlunoResponsavel/index.html")
-}
+ }); 
    }
-
-
-  
+  }

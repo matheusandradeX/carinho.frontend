@@ -1,12 +1,8 @@
-
-
 function validar() {
 var nome = document.getElementById("name").value;
 var senha = document.getElementById("pass").value;
 var idEscola = document.getElementById("dados").value;
     const form = new FormData();
-
-     
     form.append("nome", nome);
     form.append("senha", senha);
     form.append("idEscola",idEscola)
@@ -16,14 +12,12 @@ var idEscola = document.getElementById("dados").value;
         method: 'POST',
         body: form
     });
-    
     fetch(request).then(response => response.text())
     .then((response) => {
         teste(response);   
     })
     .catch(err => console.log(err))
     }
-    
     function teste(variavel){
       if (variavel.length !== 0)  {
         const obj = JSON.parse(variavel);
@@ -35,7 +29,6 @@ var idEscola = document.getElementById("dados").value;
         alert("Usuário ou Senha Inválidos")
       }
     }
-
     var url = "http://localhost:8080/api/escolas"
     fetch(url)
         .then(response => response.json())
@@ -49,7 +42,3 @@ var idEscola = document.getElementById("dados").value;
         <option value="${escola.id}"> ${escola.nome}</option><br/>
    `
 }
-    
-    
-    
-    

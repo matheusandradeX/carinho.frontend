@@ -1,6 +1,4 @@
 var idEscola =  sessionStorage.getItem('escola');
-
-
 var url = "http://localhost:8080/api/turmas/escola/"+idEscola
     fetch(url)
         .then(response => response.json())
@@ -27,16 +25,6 @@ if(verifica !== ""){
 }
 
 }
-
-
-
-
-        
-
-
-
-
-
 function cadastrarCrianca(fotoWebCam, uploadFoto ) {
     var validação = true
 
@@ -70,23 +58,8 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
         }else{
             document.getElementById("alerta").innerHTML = "* Preencher campos em vermelho"
           }
-
-
-
-
-
-
-
-
-
-
-
-    console.log("fotoWebCam "+fotoWebCam);
-    console.log("uploadFoto "+uploadFoto);
-
-
+   
     if(fotoWebCam === true){
-     //   console.log(testeImagem)
         data_uri = testeImagem
             const imagemWebcam = data_uri.slice(23,data_uri.length)
             foto = data_uri;
@@ -97,17 +70,11 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
             }
             const byteArray = new Uint8Array(byteNumbers);
              foto = new Blob([byteArray], {type: 'image/jpeg'});
-  
-  
     }
     if(fotoWebCam === false){
         verifica()                
     }
-    
-    if (uploadFoto === true){
-        console.log("valor é "+foto)
-        
-        
+    if (uploadFoto === true){ 
         var dateObj = new Date(document.getElementById('dataNascimento').value)
         var dataLocal = dateObj.toLocaleDateString('pt-BR', { timeZone: 'UTC' })  
         var turmas = document.getElementById('turma').value        
@@ -115,9 +82,6 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
         var idade = document.getElementById('idadeCrianca').value
         var sexo = document.getElementById('sexoCrianca').value
         var carteiraIdentidade = document.getElementById('carteiraIdentidade').value
-
-        console.log(turmas)
-        
         const form = new FormData();
         form.append("nome", nome);
         form.append('idade', idade);
@@ -139,6 +103,8 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
             .then(response => response.text())
             .then(console.log)
     }
+
+    alert("Aluno cadastrado!")
 
 }
 

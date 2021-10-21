@@ -38,7 +38,10 @@
                   </tbody>
                 </table>
                 <br>
-                <button  class="button is-primary href="#" onclick="download_table_as_csv('Relátorio_Frequência'+id)"><i class="material-icons">description</i>Exportar CSV</button>
+                <button  class="button is-primary href="#" onclick="download_table_as_csv('Relátorio_Frequência')"><i class="material-icons">description</i>Exportar CSV</button>
+
+                
+
     </div>
     <div id="nome"></div>
 
@@ -48,7 +51,7 @@
     
         
         <script>
-                   function myFunction() {
+          function myFunction() {
           var input, filter, table, tr, td, i, txtValue;
           input = document.getElementById("myInput");
           filter = input.value.toUpperCase();
@@ -66,10 +69,11 @@
             }       
           }
         }
- // Quick and simple export target #table_id into a csv
+
+// Quick and simple export target #table_id into a csv
 function download_table_as_csv(table_id, separator = ',') {
     // Select rows from table_id
-    var rows = document.querySelectorAll('table#' + table_id + ' tr');
+    var rows = document.querySelectorAll('table tr');
     // Construct csv
     var csv = [];
     for (var i = 0; i < rows.length; i++) {
@@ -96,6 +100,9 @@ function download_table_as_csv(table_id, separator = ',') {
     link.click();
     document.body.removeChild(link);
 }
+
+
+
         </script>
         
                  

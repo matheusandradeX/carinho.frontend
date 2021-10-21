@@ -1,22 +1,20 @@
-const urlRemove = "http://localhost:8080/api/aluno/"
-var teste;
 var escolaId = parseInt( sessionStorage.getItem('escola'))
+const getTurmas = "http://localhost:8080/api/turmas/escola/"+escolaId
 
 
-const url = "http://localhost:8080/api/turmas/escola/"+idEscola
-
-fetch(url)
+fetch(getTurmas)
     .then(response => response.json())
     .then(data => {        
-
-
-
-    
-
         document.getElementById('dados').innerHTML = data.map(turmaTemplate).join(' ')
     }).catch(err => console.log(err))
 
  
+
+function turmaTemplate(turma) {
+    return `  
+    <option value="${turma.id}"> ${turma.numeroTurma}</option><br/>
+  `
+}
 
 function turmaTemplate(turma) {
     return `  
