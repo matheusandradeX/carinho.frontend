@@ -12,7 +12,6 @@ var valorBotaoEntradaSaida
 
 
 
-
 function verificarLista() {
     var nome = document.getElementById("campoBusca").value
     if (nome == "") {
@@ -53,6 +52,9 @@ function getAluno() {
             switch(perfil) {
                 case 'ADMINISTRADOR':
                     document.getElementById('teste').innerHTML = data.map(administrador) 
+
+
+
                   break;
                 case 'PROFESSOR':
                     document.getElementById('teste').innerHTML = data.map(professor)
@@ -71,43 +73,86 @@ function getAluno() {
 
 function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
 
-var status = ultimoStatustipoHorario
+ 
+    
+    const entradaOuSaida =  document.getElementById('frequencia_'+alunoId).textContent
+
+    console.log("aluno id:"+alunoId)
+
+    console.log("valor:"+entradaOuSaida)
 
 
-if(ultimoStatustipoHorario == "ENTRADA"){
-    console.log("entrou aqui 1 ")
-    status ="SAIDA"
+    switch (entradaOuSaida) {
 
-    toast("Saida Realizada " ,myDate);
+        case 'Entrada':
+            console.log("Entrada")
+            
+            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
+            toast("Entrada Realizada " ,myDate);     
+ 
+            break;    
 
+        case 'ENTRADA':
+            console.log("ENTRADA")
+            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
+            toast("ENTRADA Realizada " ,myDate);   
+      
+        break;    
+
+        case 'SAIDA':
+            console.log("SAIDA")
+            document.getElementById('frequencia_'+alunoId).innerHTML = "ENTRADA"
+            toast("SAIDA Realizada " ,myDate);   
+    
+        break;
+    
+        default:
+            console.log("null")       
+            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
+            toast("Entrada Realizada " ,myDate);      
+        break; 
+         
+    }
+
+
+
+
+
+
+    /*
+    switch (entradaOuSaida) {
+    case 'ENTRADA':
+        console.log("entrou aqui ENTRADA ")
+        console.log("var ultimostatus:"+entradaOuSaida)
+        console.log("Aluno id: ",+alunoId)
+        console.log("------")
+        console.log("data: ",+data)
+        console.log("data.controle.tipo: "+data.controleAluno.tipoHorario )
+        console.log(document.getElementById('frequencia_'+alunoId))
+        document.getElementById('frequencia_'+alunoId).innerHTML = "Saida"
+        toast("Saida Realizada " ,myDate);    
+        break;
+    case 'SAIDA':
+        console.log("entrou aqui SAIDA ")
+        console.log("var ultimostatus:"+entradaOuSaida)
+        console.log("Aluno id: ",+alunoId)
+        console.log("------")
+        console.log(document.getElementById('frequencia_'+alunoId))
+        document.getElementById('frequencia_'+alunoId).innerHTML = "Entrada"
+        toast("Entrada Realizada " ,myDate);    
+        break;
+    default:
+        console.log("outro caso");
+        console.log("var ultimostatus:"+ultimoStatustipoHorario)
+        console.log("Aluno id: ",+alunoId)
+        console.log("------")
+        console.log(document.getElementById('frequencia_'+alunoId))
+        break;
+    }
+    */
 }
-else if(ultimoStatustipoHorario == "SAIDA"){
-    console.log("entrou aqui 2 ")
-    status ="ENTRADA"
 
-    toast("Entrada Realizada " ,myDate);
-}
-else {
-    console.log("entrou aqui 3 ")
-    status ="ENTRADA"
-    toast("Entrada Realizada " ,myDate);
-
-}
-
-
-
-
-if( document.getElementById("frequencia_"+alunoId).innerHTML == "Saida"){
-    document.getElementById("frequencia_"+alunoId).innerHTML = "Entrada"
-    document.getElementById(id="status_"+alunoId).innerHTML.replace("Entrada","Saida")  
-    document.getElementById(id="status_"+alunoId).innerHTML = "SAIDA" 
-}
-else if ( document.getElementById("frequencia_"+alunoId).innerHTML == "Entrada"){
-    document.getElementById("frequencia_"+alunoId).innerHTML = "Saida"
- document.getElementById(id="status_"+alunoId).innerHTML = "ENTRADA" 
-
-}
-
+/*
 const formData = new FormData();
 formData.append('tipoHorario', status);
 formData.append('idAluno', alunoId);
@@ -120,7 +165,7 @@ const request = new Request(url, {
 fetch(request)
     .then(response => response.text())
     .then(console.log)
-} 
+} */
 
 function resp(aluno) {
     var id = aluno
