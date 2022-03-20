@@ -107,6 +107,7 @@ else if ( document.getElementById("frequencia_"+alunoId).innerHTML == "Entrada")
  document.getElementById(id="status_"+alunoId).innerHTML = "ENTRADA" 
 
 }
+
 const formData = new FormData();
 formData.append('tipoHorario', status);
 formData.append('idAluno', alunoId);
@@ -115,7 +116,6 @@ const url = "http://localhost:8080/api/controle"
 const request = new Request(url, {
     method: 'POST',
     body: formData
-    
 });
 fetch(request)
     .then(response => response.text())

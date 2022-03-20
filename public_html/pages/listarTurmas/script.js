@@ -1,15 +1,10 @@
 var escolaId = parseInt( sessionStorage.getItem('escola'))
 const getTurmas = "http://localhost:8080/api/turmas/escola/"+escolaId
-
-
 fetch(getTurmas)
     .then(response => response.json())
     .then(data => {        
         document.getElementById('dados').innerHTML = data.map(turmaTemplate).join(' ')
     }).catch(err => console.log(err))
-
- 
-
 function turmaTemplate(turma) {
     return `  
     <option value="${turma.id}"> ${turma.numeroTurma}</option><br/>
