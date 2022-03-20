@@ -86,29 +86,23 @@ function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
 
         case 'Entrada':
             console.log("Entrada")
-            
-            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
-            toast("Entrada Realizada " ,myDate);     
- 
-            break;    
+            document.getElementById('status_'+alunoId).innerHTML = "Entrada"
+            document.getElementById('frequencia_'+alunoId).innerHTML = "Saida"
+            toast("Entrada Realizada " ,myDate);      
+            break;      
 
-        case 'ENTRADA':
-            console.log("ENTRADA")
-            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
-            toast("ENTRADA Realizada " ,myDate);   
-      
-        break;    
-
-        case 'SAIDA':
+        case 'Saida':
             console.log("SAIDA")
-            document.getElementById('frequencia_'+alunoId).innerHTML = "ENTRADA"
+            document.getElementById('status_'+alunoId).innerHTML = "Saida"
+            document.getElementById('frequencia_'+alunoId).innerHTML = "Entrada"
             toast("SAIDA Realizada " ,myDate);   
     
         break;
     
         default:
-            console.log("null")       
-            document.getElementById('frequencia_'+alunoId).innerHTML = "SAIDA"
+            console.log("null")    
+            document.getElementById('status_'+alunoId).innerHTML = "Entrada"   
+            document.getElementById('frequencia_'+alunoId).innerHTML = "Saida"
             toast("Entrada Realizada " ,myDate);      
         break; 
          
@@ -118,54 +112,9 @@ function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
 
 
 
-
-    /*
-    switch (entradaOuSaida) {
-    case 'ENTRADA':
-        console.log("entrou aqui ENTRADA ")
-        console.log("var ultimostatus:"+entradaOuSaida)
-        console.log("Aluno id: ",+alunoId)
-        console.log("------")
-        console.log("data: ",+data)
-        console.log("data.controle.tipo: "+data.controleAluno.tipoHorario )
-        console.log(document.getElementById('frequencia_'+alunoId))
-        document.getElementById('frequencia_'+alunoId).innerHTML = "Saida"
-        toast("Saida Realizada " ,myDate);    
-        break;
-    case 'SAIDA':
-        console.log("entrou aqui SAIDA ")
-        console.log("var ultimostatus:"+entradaOuSaida)
-        console.log("Aluno id: ",+alunoId)
-        console.log("------")
-        console.log(document.getElementById('frequencia_'+alunoId))
-        document.getElementById('frequencia_'+alunoId).innerHTML = "Entrada"
-        toast("Entrada Realizada " ,myDate);    
-        break;
-    default:
-        console.log("outro caso");
-        console.log("var ultimostatus:"+ultimoStatustipoHorario)
-        console.log("Aluno id: ",+alunoId)
-        console.log("------")
-        console.log(document.getElementById('frequencia_'+alunoId))
-        break;
-    }
-    */
 }
 
-/*
-const formData = new FormData();
-formData.append('tipoHorario', status);
-formData.append('idAluno', alunoId);
-formData.append('idEscola', escolaId);
-const url = "http://localhost:8080/api/controle"
-const request = new Request(url, {
-    method: 'POST',
-    body: formData
-});
-fetch(request)
-    .then(response => response.text())
-    .then(console.log)
-} */
+
 
 function resp(aluno) {
     var id = aluno
@@ -275,7 +224,7 @@ function toast(nome,horario) {
                    <br>
                    <div style="display: flex;
                    flex-direction: row;">
-                    <strong ">Status: </strong><p id=" status_${data.aluno.id}"> ${data.controleAluno.tipoHorario  }</p>
+                    <strong ">Último Status: </strong><p style="margin-left: 5px" id="status_${data.aluno.id}"> ${data.controleAluno.tipoHorario  }</p>
                    </div>
                    </div>
                 </div>
@@ -348,7 +297,7 @@ function toast(nome,horario) {
                        <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
                        <br>
                        <div>
-                       <strong id="status_${data.aluno.id}"  >Status: </strong>Novo aluno
+                       <strong id="status_${data.aluno.id}"  >Último Status: </strong>Novo aluno
                        </div>
                        </div>
                     </div>
@@ -373,7 +322,6 @@ function toast(nome,horario) {
 //Adicionar um delay para ler a API
   setTimeout(function(){   
 }, 100);
-
 
 
 
