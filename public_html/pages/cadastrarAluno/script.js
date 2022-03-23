@@ -75,7 +75,7 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
         verifica()                
     }
     if (uploadFoto === true){ 
-        var dateObj = new Date(document.getElementById('dataNascimento').value)
+     
         var dataLocal = dateObj.toLocaleDateString('pt-BR', { timeZone: 'UTC' })  
         var turmas = document.getElementById('turma').value        
         var nome = document.getElementById('nomeCrianca').value

@@ -52,7 +52,10 @@ function getAluno() {
                 case 'PROFESSOR':
                     document.getElementById('teste').innerHTML = data.map(professor)
                   break;
-                default:
+                  case 'MONITOR':
+                    document.getElementById('teste').innerHTML = data.map(professor)
+                  break;
+                  default:
                    alert("Usuário não Autenticado")
                    window.location.replace("../../index.html") 
               }
@@ -158,10 +161,86 @@ function toast(nome,horario) {
     
   }
  
-    function professor(aluno){
+    function professor(data){
+        const idAluno = data.aluno.id;
+        const urlRegistro = "http://localhost:8080/api/aluno/"+idAluno+"/escola/"+escolaId;
+            fetch(urlRegistro)
+            .then(response => response.json())
+            .then(data => {       
+
+        }).catch(err => console.log(err))
+            if (data.controleAluno !== null && data.controleAluno!== undefined){
+                 valorBotaoEntradaSaida = " Entrada";
+            if(data.controleAluno.tipoHorario === " SAIDA"){
+                valorBotaoEntradaSaida = " Entrada";
+            }
+            if(data.controleAluno.tipoHorario === " ENTRADA"){
+                valorBotaoEntradaSaida = " Saida";
+
+
+
+            }
+      
+        
         return `
+        <style>
+        * {
+        margin:0px;
+        padding:0px;
+        }
+        </style>
+       <div class="columns is-mobile is-centered ">
+       <div class="box" style="width: 600px; margin-top:20px; ">
+       <div style="display: flex; justify-content: flex-end">
+       <div id="remove" class="remove" name="remove" >
+           <div class="dropdown is-right is-hoverable">
+               <div class="dropdown-trigger">
+                   
+               </div>
+            
+           </div>
+       </div>
+    </div>
+         <div class="elementos" style="display: flex;
+         justify-content: space-between;">
+            <div class="elemento" style="width:auto; font-size:20px;"> 
+            <div>
+               <strong>Nome:</strong> ${data.aluno.nome}  
+            </div>
+            
+               <div >
+               <strong>Idade:</strong> ${data.aluno.idade}
+               </div>
+               <div>
+               <strong>Sexo:</strong> ${data.aluno.genero}
+               </div>
+               <div >
+               <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
+               <br>
+               <div style="display: flex;
+               flex-direction: row;">
+                <strong ">Último Status: </strong><p style="margin-left: 5px" id="status_${data.aluno.id}"> ${data.controleAluno.tipoHorario  }</p>
+               </div>
+               </div>
+            </div>
+            <div class="elemento2">
+               <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${data.aluno.foto}" />
+            </div>
+         </div>
+      <footer class="card-footer" id="footer"style="font-size: 30px">
+      <button class="card-footer-item button"  id="frequencia_${data.aluno.id}"    onclick="persistirFrequencia(${data.aluno.id},'${data.controleAluno.tipoHorario}')" >${valorBotaoEntradaSaida}</button>
+      <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
+      Responsável 
+    </a>
+      </footer>
+      </div>  
+      <div id="snackbar">Some text some message..</div>
+      </div>
+
+
+
       `
-    }
+    }  }
   
     function administrador(data) {
         const idAluno = data.aluno.id;
@@ -254,81 +333,10 @@ function toast(nome,horario) {
           <div id="snackbar">Some text some message..</div>
           </div>
         `    
-            } 
-            else{
-                return `
-                <style>
-                * {
-                margin:0px;
-                padding:0px;
-                }
-                </style>
-               <div class="columns is-mobile is-centered ">
-               <div class="box" style="width: 600px; margin-top:20px; ">
-               <div style="display: flex; justify-content: flex-end">
-               <div id="remove" class="remove" name="remove" >
-                   <div class="dropdown is-right is-hoverable">
-                       <div class="dropdown-trigger">
-                            <button class="button" aria-haspopup="true" aria-controls="dropdown-menu"> 
-                            <span>Menu</span> 
-                            <span class="icon is-small"> 
-                            <i class="fas fa-angle-down"     aria-hidden="true"></i> 
-                            </span> 
-                        </button>
-                       </div>
-                       <div class="dropdown-menu" id="dropdown-menu1" role="menu">
-                           <div class="dropdown-content">
-            
-                               <a href="../alterarAluno/index.html" class="dropdown-item"   onclick="atualizarAluno(${data.aluno.id})">  <i class="material-icons">edit</i>
-                                   Editar
-                                </a>
-                                <a href="#" class="dropdown-item"    onclick="remove(${data.aluno.id})"> <i class="material-icons">delete</i>
-                                   Deletar
-                                </a>
-                                <a href="../responsavel/index.html" class="dropdown-item" onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
-                                   Responsável 
-                                </a>
-                           </div>
-                       </div>
-                   </div>
-               </div>
-            </div>
-                 <div class="elementos" style="justify-content: center;">
-                    <div class="elemento" style="width:auto; font-size:20px;"> 
-                    <div>
-                       <strong>Nome:</strong> ${data.aluno.nome}  ${data.aluno.id} 
-                    </div>
-                    
-                       <div>
-                       <strong>Idade:</strong> ${data.aluno.idade}
-                       </div>
-                       <div>
-                       <strong>Sexo:</strong> ${data.aluno.genero}
-                       </div>
-                       <div>
-                       <strong>Documento:</strong> ${data.aluno.carteiraIdentidade}
-                       <br>
-                       <div>
-                       <strong id="status_${data.aluno.id}"  >Último Status: </strong>Novo aluno
-                       </div>
-                       </div>
-                    </div>
-                    <div class="elemento2">
-                       <img style='display:block; width:200px;height:200px;' src="data:image/png;base64, ${data.aluno.foto}" />
-                    </div>
-                 </div>
-              <footer class="card-footer" id="footer"style="font-size: 30px">
-              <a href="#" id="frequencia_${data.aluno.id}"  class="card-footer-item" onclick="persistirFrequencia(${data.aluno.id},'ENTRADA')">Entrada</a>
-              <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
-              Responsável 
-            </a>
-              </footer>
-              </div>  
-              <div id="snackbar">Some text some message..</div>
-              </div>
-            ` 
             }
         }
+
+        
         
 //Adicionar um delay para ler a API
   setTimeout(function(){   
