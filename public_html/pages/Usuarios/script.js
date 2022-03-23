@@ -1,6 +1,23 @@
 
 
+
+   var url = "http://localhost:8080/api/escolas"
+   fetch(url)
+       .then(response => response.json())
+       .then(data => {
+
+           document.getElementById('dados').innerHTML = data.map(Template).join(' ')
+       }).catch(err => console.log(err))
+
+   function Template(escola) {
+       return `  
+       <option value="${escola.id}"> ${escola.nome}</option><br/>
+  `}
+
 function cadastrar() {
+
+
+  var idEscola = document.getElementById('dados').value
 
     const form = new FormData();
 
@@ -12,9 +29,10 @@ function cadastrar() {
     var email = document.getElementById('email').value
     var carteiraIdentidade = document.getElementById('carteira_identidade').value
     var cpf = document.getElementById('cpf').value
+   var validação = true
 
 
-  var validação = true
+
 
     if( document.getElementById('nome').value == "" ){
 
@@ -76,11 +94,9 @@ function cadastrar() {
     }
 
     
-  
-    
     if(validação == true){
       document.getElementById("alerta").innerHTML = ""
-      console.log("entrei aqui")
+    
     if(senha === senha2 && senha !== undefined && senha2 !== undefined && senha !== "" && senha2 !== ""){
  
    form.append("nome", nome);
@@ -90,6 +106,7 @@ function cadastrar() {
     form.append('email', email);
     form.append('cpf', cpf);
     form.append('carteiraIdentidade', carteiraIdentidade);
+    form.append('idEscola', idEscola);
     const url = 'http://localhost:8080/api/cadastrarPerfil'
     const request = new Request(url, {
         method: 'POST',
@@ -133,4 +150,4 @@ function mask(cpf)
   cpf = cpf.replace(/^(\d{3})/g, "$1.");
   cpf = cpf.replace(/(\d{3})(\d{3})/g, "$1.$2-");        
   return cpf;
-}
+} 

@@ -1,6 +1,5 @@
 var url = "http://localhost:8080/api/aluno"
 var urlRemove = "http://localhost:8080/api/aluno/"
-
 var listaAlunos
 var nome = document.getElementById("campoBusca").value
 let headers = new Headers();
@@ -9,8 +8,6 @@ headers.append('Content-Type', 'text/json');
 var escolaId = parseInt( sessionStorage.getItem('escola'))
 var myDate = new Date().toTimeString().replace(/.*(\d{2}:\d{2}:\d{2}).*/, "$1");
 var valorBotaoEntradaSaida 
-
-
 
 function verificarLista() {
     var nome = document.getElementById("campoBusca").value
@@ -38,7 +35,6 @@ function remove(idAluno) {
         alert("Ação cancelada")
     }
 
-
 }
 
 function getAluno() {
@@ -48,13 +44,10 @@ function getAluno() {
         .then(data => {  
     listaAlunos = data
     console.log(listaAlunos)
-   
+    
             switch(perfil) {
                 case 'ADMINISTRADOR':
                     document.getElementById('teste').innerHTML = data.map(administrador) 
-
-
-
                   break;
                 case 'PROFESSOR':
                     document.getElementById('teste').innerHTML = data.map(professor)
@@ -72,18 +65,33 @@ function getAluno() {
 }
 
 function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
+    var status = ultimoStatustipoHorario
 
- 
-    
+if(ultimoStatustipoHorario == "ENTRADA"){
+    console.log("entrou aqui 1 ")
+    status ="SAIDA"
+
+    toast("Saida Realizada " ,myDate);
+
+}
+else if(ultimoStatustipoHorario == "SAIDA"){
+    console.log("entrou aqui 2 ")
+    status ="ENTRADA"
+
+    toast("Entrada Realizada " ,myDate);
+}
+else {
+    console.log("entrou aqui 3 ")
+    status ="ENTRADA"
+    toast("Entrada Realizada " ,myDate);
+
+}
     const entradaOuSaida =  document.getElementById('frequencia_'+alunoId).textContent
-
-    console.log("aluno id:"+alunoId)
-
-    console.log("valor:"+entradaOuSaida)
+     console.log("aluno id:"+alunoId)
+     console.log("valor:"+entradaOuSaida)
 
 
     switch (entradaOuSaida) {
-
         case 'Entrada':
             console.log("Entrada")
             document.getElementById('status_'+alunoId).innerHTML = "Entrada"
@@ -96,7 +104,6 @@ function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
             document.getElementById('status_'+alunoId).innerHTML = "Saida"
             document.getElementById('frequencia_'+alunoId).innerHTML = "Entrada"
             toast("SAIDA Realizada " ,myDate);   
-    
         break;
     
         default:
@@ -108,14 +115,20 @@ function persistirFrequencia(alunoId,ultimoStatustipoHorario) {
          
     }
 
-
-
-
-
-}
-
-
-
+    const formData = new FormData();
+    formData.append('tipoHorario',status);
+    formData.append('idAluno', alunoId);
+    formData.append('idEscola', escolaId);
+    const url = "http://localhost:8080/api/controle"
+    const request = new Request(url, {
+        method: 'POST',
+        body: formData
+    });
+    fetch(request)
+        .then(response => response.text())
+        .then(console.log)
+    } 
+    
 function resp(aluno) {
     var id = aluno
     console.log(aluno)
@@ -150,7 +163,6 @@ function toast(nome,horario) {
       `
     }
   
-
     function administrador(data) {
         const idAluno = data.aluno.id;
         const urlRegistro = "http://localhost:8080/api/aluno/"+idAluno+"/escola/"+escolaId;
@@ -318,10 +330,8 @@ function toast(nome,horario) {
             }
         }
         
-
 //Adicionar um delay para ler a API
   setTimeout(function(){   
 }, 100);
-
 
 
