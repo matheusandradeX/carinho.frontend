@@ -1,3 +1,8 @@
+var idEscola = sessionStorage.getItem('escola')
+
+console.log("Estamos na escola: "+idEscola)
+
+
 var url = "http://localhost:8080/api/login/professores"
     fetch(url)
         .then(response => response.json())
@@ -25,6 +30,7 @@ function cadastrar(){
     
     form.append("numeroTurma", numeroTurma);
     form.append('professorResponsavel', professorResponsavel);
+    form.append('idEscola', idEscola);
    
    
     const request = new Request(url, {

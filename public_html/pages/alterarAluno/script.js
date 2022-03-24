@@ -57,6 +57,6 @@ var url = "http://localhost:8080/api/aluno/"+idAluno+"/escola/"+idEscola;
     body: form
  });
  
-   
+   alert("Aluno Atualizado")
   
    }

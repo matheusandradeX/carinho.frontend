@@ -1,9 +1,5 @@
 var idEscola =  sessionStorage.getItem('escola');
 
-
-
-
-
 var url = "http://localhost:8080/api/alunos/escola/"+idEscola
     fetch(url)
         .then(response => response.json())
@@ -19,9 +15,6 @@ var url = "http://localhost:8080/api/alunos/escola/"+idEscola
 }
 
 var url2 = "http://localhost:8080/api/responsaveis"
-
-
-
     fetch(url2)
         .then(response => response.json())
         .then(data2 => {
@@ -41,11 +34,7 @@ var url2 = "http://localhost:8080/api/responsaveis"
 }
 
 function vincularDados(){
-
-
     const form = new FormData();
-
-
     var aluno = document.getElementById('dados').value
     var responsavel = document.getElementById('dadosResponsavel').value
     

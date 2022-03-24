@@ -136,6 +136,8 @@ function resp(aluno) {
     var id = aluno
     console.log(aluno)
     sessionStorage.setItem('idAluno', id);
+    window.location.replace("../responsavel/index.html")
+
 }
 
 function atualizarAluno(alunoId) {
@@ -325,9 +327,7 @@ function toast(nome,horario) {
              </div>
           <footer class="card-footer" id="footer"style="font-size: 30px">
           <button class="card-footer-item button"  id="frequencia_${data.aluno.id}"    onclick="persistirFrequencia(${data.aluno.id},'${data.controleAluno.tipoHorario}')" >${valorBotaoEntradaSaida}</button>
-          <a href="../responsavel/index.html" class="card-footer-item" "             onclick="resp(${data.aluno.id})"   > <i class="material-icons">people</i>
-          Responsável 
-        </a>
+          <button class="card-footer-item button"                                  onclick="resp(${data.aluno.id})"         > <i class="material-icons">people</i>Responsaveis</button>
           </footer>
           </div>  
           <div id="snackbar">Some text some message..</div>

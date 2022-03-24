@@ -76,7 +76,7 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
     }
     if (uploadFoto === true){ 
      
-        var dataLocal = dateObj.toLocaleDateString('pt-BR', { timeZone: 'UTC' })  
+       
         var turmas = document.getElementById('turma').value        
         var nome = document.getElementById('nomeCrianca').value
         var idade = document.getElementById('idadeCrianca').value
@@ -86,7 +86,6 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
         form.append("nome", nome);
         form.append('idade', idade);
         form.append('genero', sexo);
-        form.append('dataNascimento', dataLocal);
         form.append('carteiraIdentidade', carteiraIdentidade);
         form.append('foto', foto);
         form.append('turma',turmas)
@@ -102,9 +101,11 @@ function cadastrarCrianca(fotoWebCam, uploadFoto ) {
         fetch(request)
             .then(response => response.text())
             .then(console.log)
-    }
+ 
+      alert("Aluno cadastrado!")
+          }
 
-    alert("Aluno cadastrado!")
+   
 
 }
 
