@@ -12,4 +12,24 @@ Link to Back End of project: https://github.com/matgda/carinho.backend
 
 ## Screenshot of Carinho
 
+### Login Page
+
+![image](https://user-images.githubusercontent.com/30836537/174513343-34e23df5-0a1c-4e95-a211-b0f9f5cb3946.png)
+
+### Register new student
+
+![image](https://user-images.githubusercontent.com/30836537/174513475-5782996e-b13e-4e7c-8b66-a92996f27ff4.png)
+
+
+###  Frequency student Report
+![image](https://user-images.githubusercontent.com/30836537/174513636-e7e2cf82-fb9a-4c59-9537-546306ef15ec.png)
+
+### Class Report
+
+![image](https://user-images.githubusercontent.com/30836537/174513705-810d0896-ca01-4858-91ac-f7e664d60b04.png)
+
+
+### Registrer new user 
+
+![image](https://user-images.githubusercontent.com/30836537/174513567-7a6a52c7-effa-41d3-bc8f-4505159335a3.png)
 
